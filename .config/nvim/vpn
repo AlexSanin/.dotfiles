@@ -1,0 +1,5 @@
+cd .. 
+cd ..
+cd opt/forticlient-sslvpn/64bit/
+./forticlientsslvpn_cli connect --server 195.24.157.182:10443 --vpnuser alexey --keepalive
+
