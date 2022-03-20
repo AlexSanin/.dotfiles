@@ -46,8 +46,8 @@ end
 
 vim.opt.completeopt={"menu","menuone","noselect"}
 
-  -- Setup nvim-cmp.
-  local cmp = require'cmp'
+-- Setup nvim-cmp.
+local cmp = require'cmp'
 
   cmp.setup({
     snippet = {
@@ -80,48 +80,7 @@ vim.opt.completeopt={"menu","menuone","noselect"}
       { name = 'buffer' },
     })
   })
+
   --ESLINT
 require'lspconfig'.eslint.setup{}
 
---TELESCOPE
-require('telescope').setup{
-  defaults = {
-    prompt_prefix = "$ "
-  },
-  extensions = {
-    fzf = {
-        fuzzy = true,                    -- false will only do exact matching
-        override_generic_sorter = true,  -- override the generic sorter
-        override_file_sorter = true,     -- override the file sorter
-        case_mode = "smart_case",        -- or "ignore_case" or "respect_case"
-                                         -- the default case_mode is "smart_case"
-      }
-    }
-}
-require('telescope').load_extension('fzf')
-
---Treesitter
-require'nvim-treesitter.configs'.setup {
-  -- One of "all", "maintained" (parsers with maintainers), or a list of languages
-  ensure_installed = "maintained",
-
-  -- Install languages synchronously (only applied to `ensure_installed`)
-  sync_install = false,
-
-  -- List of parsers to ignore installing
-  ignore_install = { "javascript" },
-
-  highlight = {
-    -- `false` will disable the whole extension
-    enable = true,
-
-    -- list of language that will be disabled
-    disable = { "c", "rust" },
-
-    -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
-    -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
-    -- Using this option may slow down your editor, and you may see some duplicate highlights.
-    -- Instead of tue it can also be a list of languages
-    additional_vim_regex_highlighting = false,
-  },
-}
