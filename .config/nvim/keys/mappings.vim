@@ -59,3 +59,5 @@ nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
 " LSP SAGA
 nnoremap <silent><leader>ca <cmd>lua require('lspsaga.codeaction').code_action()<CR>
 vnoremap <silent><leader>ca :<C-U>lua require('lspsaga.codeaction').range_code_action()<CR>
+
+nnoremap <leader>e :NvimTreeToggle<CR>

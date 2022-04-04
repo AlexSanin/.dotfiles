@@ -83,4 +83,5 @@ local cmp = require'cmp'
 
   --ESLINT
 require'lspconfig'.eslint.setup{}
-
+ --FILE TREE
+require'nvim-tree'.setup{}
