@@ -1,7 +1,7 @@
 -- Mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
 local opts = { noremap=true, silent=true }
-vim.api.nvim_set_keymap('n', '<space>e', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
+--vim.api.nvim_set_keymap('n', '<space>e', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
 vim.api.nvim_set_keymap('n', '<leader>dp', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
 vim.api.nvim_set_keymap('n', '<leader>df', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
 vim.api.nvim_set_keymap('n', '<space>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)
@@ -45,6 +45,7 @@ for _, lsp in pairs(servers) do
 end 
 
 vim.opt.completeopt={"menu","menuone","noselect"}
+vim.g.nvim_tree_respect_buf_cwd = 1
 
 -- Setup nvim-cmp.
 local cmp = require'cmp'
@@ -84,4 +85,11 @@ local cmp = require'cmp'
   --ESLINT
 require'lspconfig'.eslint.setup{}
  --FILE TREE
-require'nvim-tree'.setup{}
+require'nvim-tree'.setup{
+  update_cwd = true,
+  open_on_setup_file = true,
+  update_focused_file = {
+      enable = true,
+      update_cwd = true,
+  }
+}
