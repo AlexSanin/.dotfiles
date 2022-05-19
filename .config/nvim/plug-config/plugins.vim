@@ -32,5 +32,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
   Plug 'kyazdani42/nvim-tree.lua'
   "Tests
   Plug 'kubejm/jest.nvim'
-call plug#end()
+  "Git
+  Plug 'tpope/vim-fugitive'
+  call plug#end()
 
