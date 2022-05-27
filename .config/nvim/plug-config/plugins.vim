@@ -15,7 +15,10 @@ call plug#begin('~/.config/nvim/autoload/plugged')
   Plug 'hrsh7th/nvim-cmp'
   Plug 'L3MON4D3/LuaSnip'
   Plug 'saadparwaiz1/cmp_luasnip'
+  "Themes
   Plug 'morhetz/gruvbox'
+  Plug 'shaunsingh/solarized.nvim'
+  Plug 'NLKNguyen/papercolor-theme'
   "Start screen
   Plug 'mhinz/vim-startify' 
   "Line in the bottom

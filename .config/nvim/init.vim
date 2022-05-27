@@ -1,5 +1,7 @@
 source $HOME/.config/nvim/plug-config/plugins.vim
-source $HOME/.config/nvim/themes/theme.vim
+source $HOME/.config/nvim/themes/gruvbox-dark.vim
+"source $HOME/.config/nvim/themes/gruvbox-light.vim
+"source $HOME/.config/nvim/themes/solarized.vim
 source $HOME/.config/nvim/themes/start-screen.vim
 source $HOME/.config/nvim/themes/airline.vim
 source $HOME/.config/nvim/general/settings.vim
