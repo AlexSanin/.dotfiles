@@ -10,6 +10,7 @@ fi
 
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/sas/.oh-my-zsh"
+export FRONT="/Users/sas/work/mackey/front-end"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -115,8 +116,10 @@ source $ZSH/oh-my-zsh.sh
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 alias=nvim="nvim"
+alias zshrc="nvim /Users/sas/.zshrc"
 alias chrome="open -a 'Google Chrome'"
 alias dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
+alias mysqll="mysql -u root  -h 127.0.0.1 -P 3306 -proot"   
 
 export PATH=$PATH:$HOME/bin
 export PATH="/usr/local/sbin:$PATH"

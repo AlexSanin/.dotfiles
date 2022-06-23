@@ -43,6 +43,8 @@ set nobackup
 set nowritebackup
 set nowb
 set colorcolumn=120                     "Set ruler after 120 symbols
+set autoread
+autocmd FocusGained * checktime
 let g:user_emmet_settings = {
 \  'javascript' : {
 \      'extends' : 'jsx',
