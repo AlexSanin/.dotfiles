@@ -33,8 +33,6 @@ call plug#begin('~/.config/nvim/autoload/plugged')
   "File tree 
   Plug 'kyazdani42/nvim-web-devicons' " for file icons
   Plug 'kyazdani42/nvim-tree.lua'
-  "Tests
-  Plug 'kubejm/jest.nvim'
   "Git
   Plug 'tpope/vim-fugitive'
   call plug#end()

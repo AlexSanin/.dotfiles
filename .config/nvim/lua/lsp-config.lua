@@ -87,10 +87,9 @@ local cmp = require'cmp'
 require'lspconfig'.eslint.setup{}
  --FILE TREE
 require'nvim-tree'.setup{
-  update_cwd = true,
-  open_on_setup_file = true,
+  --open_on_setup_file = true,
   update_focused_file = {
       enable = true,
-      update_cwd = true,
+     -- update_cwd = true,
   }
 }

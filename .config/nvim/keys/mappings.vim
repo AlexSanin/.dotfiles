@@ -54,6 +54,7 @@ inoremap <Right> <NOP>
 nnoremap <leader>fi <cmd>Telescope find_files cwd=~/.config/nvim<cr>
 nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
 nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
+nnoremap <leader>fl <cmd>lua require('telescope.builtin').resume()<cr>
 nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
 nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
 " LSP SAGA
@@ -68,3 +69,4 @@ nnoremap gr gd[{V%::s/<C-R>///gc<left><left><left>
 
 " For global replace
 nnoremap gR gD:%s/<C-R>///gc<left><left><left>
+" RUN TEST npm run test:react --t transformer.utils.spec 
