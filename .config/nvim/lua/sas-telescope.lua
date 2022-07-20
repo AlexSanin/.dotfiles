@@ -2,7 +2,8 @@
 require('telescope').setup{
   defaults = {
     previewer = true,
-    prompt_prefix = "$ "
+    prompt_prefix = "$ ",
+    layout_config = { width = 0.99 }
   },
   extensions = {
     fzf = {
@@ -13,14 +14,14 @@ require('telescope').setup{
                                          -- the default case_mode is "smart_case"
       }
  },
- pickers = {
-   find_files = {
-     theme = "dropdown"
-   },
-   live_grep= {
-     theme = "dropdown"
-   },
- },
+ --pickers = {
+ --  find_files = {
+ --    theme = "dropdown"
+ --  },
+ --  live_grep= {
+ --    theme = "dropdown"
+ --  },
+ --},
 }
 
 require('telescope').load_extension('fzf')
