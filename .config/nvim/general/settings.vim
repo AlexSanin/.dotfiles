@@ -29,7 +29,7 @@ set showtabline=2                       " Always show tabs
 set noshowmode                          " We don't need to see things like -- INSERT -- anymore
 set nobackup                            " This is recommended by coc
 set nowritebackup                       " This is recommended by coc
-set updatetime=300                      " Faster completion
+set updatetime=100                      " Faster completion
 set lazyredraw
 set autoread
 set timeoutlen=500                      " By default timeoutlen is 1000 ms
@@ -54,11 +54,3 @@ let g:user_emmet_settings = {
 \  },
 \}
 au! BufWritePost $MYVIMRC source %      " auto source when writing to init.vm alternatively you can run :source $MYVIMRC
-" You can't stop me
-cmap w!! w !sudo tee %
-autocmd BufEnter *.{js,jsx,ts,tsx} :syntax sync fromstart
-autocmd BufLeave *.{js,jsx,ts,tsx} :syntax sync clear
-autocmd bufnewfile,bufread *.tsx set filetype=typescript.tsx
-autocmd bufnewfile,bufread *.jsx set filetype=javascript.jsx
-autocmd bufnewfile,bufread *.js set filetype=javascript.jsx
-augroup filetype javascript syntax=javascript

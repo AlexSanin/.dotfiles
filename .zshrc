@@ -11,6 +11,7 @@ fi
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/sas/.oh-my-zsh"
 export FRONT="/Users/sas/work/mackey/front-end"
+export NVM_DIR=~/.nvm
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -86,7 +87,8 @@ plugins=(
   zsh-autosuggestions
 )
 source $ZSH/oh-my-zsh.sh
-
+source /Users/sas/.bash_profile
+source $(brew --prefix nvm)/nvm.sh
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
