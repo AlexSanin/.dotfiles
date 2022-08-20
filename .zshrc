@@ -118,9 +118,9 @@ source $(brew --prefix nvm)/nvm.sh
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 alias=nvim="nvim"
-alias zshrc="nvim /Users/sas/.zshrc"
+alias zs="nvim /Users/sas/.zshrc"
 alias chrome="open -a 'Google Chrome'"
-alias dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
+alias df="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
 alias mysqll="mysql -u root  -h 127.0.0.1 -P 3306 -proot"   
 
 export PATH=$PATH:$HOME/bin
