@@ -3,7 +3,8 @@ require('telescope').setup{
   defaults = {
     previewer = true,
     prompt_prefix = "$ ",
-    layout_config = { width = 0.99 }
+    layout_config = { width = 0.99 },
+    buffer_previewer_maker = new_maker,
   },
   extensions = {
     fzf = {

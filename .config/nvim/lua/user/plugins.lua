@@ -66,12 +66,7 @@ return packer.startup(function(use)
   use 'shaunsingh/solarized.nvim'
   use 'NLKNguyen/papercolor-theme'
   use "folke/tokyonight.nvim" 
-  use "lunarvim/darkplus.nvim" 
-  --Start screen
-  --use 'mhinz/vim-startify' 
-  --Line in the bottom
-  --use 'vim-airline/vim-airline'
-  --use 'vim-airline/vim-airline-themes'
+  use 'martinsione/darkplus.nvim'
   --Telescope
   use {
   'nvim-telescope/telescope.nvim', tag = '0.1.0',
@@ -83,6 +78,17 @@ return packer.startup(function(use)
   use 'nvim-treesitter/nvim-treesitter'
   --File tree 
   use 'kyazdani42/nvim-tree.lua'
+  --git
+  use {
+    'dinhhuy258/git.nvim'
+  }
+  use {
+    'lewis6991/gitsigns.nvim',
+    -- tag = 'release' -- To use the latest release (do not use this if you run Neovim nightly or dev builds!)
+  }
+  use { "williamboman/mason.nvim" }
+  --use 'jose-elias-alvarez/null-ls.nvim' -- Use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua
+
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

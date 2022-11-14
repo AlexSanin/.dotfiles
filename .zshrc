@@ -11,7 +11,10 @@ fi
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/sas/.oh-my-zsh"
 export FRONT="/Users/sas/work/mackey/front-end"
+export work="/Users/sas/work/mackey"
 export NCONF="/Users/sas/.config/nvim"
+
+export mk="/Users/sas/work/mackey/$1"
 export NVM_DIR=~/.nvm
 
 # Set name of the theme to load --- if set to "random", it will
@@ -126,3 +129,10 @@ alias mysqll="mysql -u root  -h 127.0.0.1 -P 3306 -proot"
 
 export PATH=$PATH:$HOME/bin
 export PATH="/usr/local/sbin:$PATH"
+
+#alias gc
+# Functions
+gtdc () {
+  container=${1}
+  docker-compose exec -u root $container bash -l
+}
