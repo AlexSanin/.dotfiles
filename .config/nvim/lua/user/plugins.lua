@@ -48,15 +48,28 @@ return packer.startup(function(use)
   use { "goolord/alpha-nvim" }
   use { "ahmedkhalf/project.nvim" }
   --lsp
-  use 'neovim/nvim-lspconfig' --native lsp
-  use 'hrsh7th/nvim-cmp'
-  use 'hrsh7th/cmp-buffer'
-  use 'hrsh7th/cmp-path'
-  use 'saadparwaiz1/cmp_luasnip'
-  use 'hrsh7th/cmp-nvim-lsp'
-  use { "hrsh7th/cmp-nvim-lua" }
-  use 'L3MON4D3/LuaSnip'
   use { "RRethy/vim-illuminate" }
+use {
+  'VonHeikemen/lsp-zero.nvim',
+  requires = {
+    -- LSP Support
+    {'neovim/nvim-lspconfig'},
+    {'williamboman/mason.nvim'},
+    {'williamboman/mason-lspconfig.nvim'},
+
+    -- Autocompletion
+    {'hrsh7th/nvim-cmp'},
+    {'hrsh7th/cmp-buffer'},
+    {'hrsh7th/cmp-path'},
+    {'saadparwaiz1/cmp_luasnip'},
+    {'hrsh7th/cmp-nvim-lsp'},
+    {'hrsh7th/cmp-nvim-lua'},
+
+    -- Snippets
+    {'L3MON4D3/LuaSnip'},
+    {'rafamadriz/friendly-snippets'},
+  }
+}
   --Themes
   use { "kyazdani42/nvim-web-devicons", opt = true }
   use { "akinsho/bufferline.nvim" }
@@ -80,17 +93,14 @@ return packer.startup(function(use)
   use 'kyazdani42/nvim-tree.lua'
   --git
   use {
-    'dinhhuy258/git.nvim'
-  }
-  use {
     'lewis6991/gitsigns.nvim',
     -- tag = 'release' -- To use the latest release (do not use this if you run Neovim nightly or dev builds!)
   }
+  use "tpope/vim-fugitive"
+  --
   use 'jose-elias-alvarez/null-ls.nvim' -- Use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua
-  use("williamboman/mason.nvim") -- in charge of managing lsp servers, linters & formatters
-  use("williamboman/mason-lspconfig.nvim") -- bridges gap b/w mason & lspconfig
   use("jayp0521/mason-null-ls.nvim") -- bridges gap b/w mason & null-ls
-
+  use "mbbill/undotree"
 
 
   -- Automatically set up your configuration after cloning packer.nvim

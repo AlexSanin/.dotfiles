@@ -42,10 +42,10 @@ keymap("n", "<S-q>", "<cmd>Bdelete!<CR>", opts)
 keymap("v", "p", '"_dP', opts)
 
 -- Don't use arrows
-keymap("n","<Up>",   "<NOP>")
-keymap("n","<Down>", "<NOP>")
-keymap("n","<Left>", "<NOP>")
-keymap("n","<Right>","<NOP>")
+keymap("n", "<Up>", "<NOP>")
+keymap("n", "<Down>", "<NOP>")
+keymap("n", "<Left>", "<NOP>")
+keymap("n", "<Right>", "<NOP>")
 
 
 -- Insert --
@@ -53,10 +53,10 @@ keymap("n","<Right>","<NOP>")
 keymap("i", "jk", "<ESC>", opts)
 
 -- Don't use arrows really, just dont
-keymap("i","<Up>",   "<NOP>")
-keymap("i","<Down>", "<NOP>")
-keymap("i","<Left>", "<NOP>")
-keymap("i","<Right>","<NOP>")
+keymap("i", "<Up>", "<NOP>")
+keymap("i", "<Down>", "<NOP>")
+keymap("i", "<Left>", "<NOP>")
+keymap("i", "<Right>", "<NOP>")
 
 -- Visual --
 -- Stay in indent mode
@@ -77,19 +77,45 @@ keymap("n", "<leader>fb", ":Telescope buffers<CR>", opts)
 keymap("n", "<leader>;", ":EslintFixAll<CR>", opts)
 
 -- Git
---keymap("n", "<leader>gg", "<cmd>lua _LAZYGIT_TOGGLE()<CR>", opts)
---
----- Comment
---keymap("n", "<leader>/", "<cmd>lua require('Comment.api').toggle_current_linewise()<CR>", opts)
---keymap("x", "<leader>/", '<ESC><CMD>lua require("Comment.api").toggle_linewise_op(vim.fn.visualmode())<CR>')
---
----- DAP
---keymap("n", "<leader>db", "<cmd>lua require'dap'.toggle_breakpoint()<cr>", opts)
---keymap("n", "<leader>dc", "<cmd>lua require'dap'.continue()<cr>", opts)
---keymap("n", "<leader>di", "<cmd>lua require'dap'.step_into()<cr>", opts)
---keymap("n", "<leader>do", "<cmd>lua require'dap'.step_over()<cr>", opts)
---keymap("n", "<leader>dO", "<cmd>lua require'dap'.step_out()<cr>", opts)
---keymap("n", "<leader>dr", "<cmd>lua require'dap'.repl.toggle()<cr>", opts)
---keymap("n", "<leader>dl", "<cmd>lua require'dap'.run_last()<cr>", opts)
---keymap("n", "<leader>du", "<cmd>lua require'dapui'.toggle()<cr>", opts)
---keymap("n", "<leader>dt", "<cmd>lua require'dap'.terminate()<cr>", opts)
+
+keymap("n", "<leader>pv", vim.cmd.Ex)
+
+keymap("v", "J", ":m '>+1<CR>gv=gv")
+keymap("v", "K", ":m '<-2<CR>gv=gv")
+
+keymap("n", "J", "mzJ`z")
+keymap("n", "<C-d>", "<C-d>zz")
+keymap("n", "<C-u>", "<C-u>zz")
+keymap("n", "n", "nzzzv")
+keymap("n", "N", "Nzzzv")
+
+keymap("n", "<leader>vwm", function()
+  require("vim-with-me").StartVimWithMe()
+end)
+keymap("n", "<leader>svwm", function()
+  require("vim-with-me").StopVimWithMe()
+end)
+
+-- greatest remap ever
+keymap("x", "<leader>p", [["_dP]])
+
+-- next greatest remap ever : asbjornHaland
+keymap({ "n", "v" }, "<leader>y", [["+y]])
+keymap("n", "<leader>Y", [["+Y]])
+
+keymap({ "n", "v" }, "<leader>d", [["_d]])
+
+-- This is going to get me cancelled
+keymap("i", "<C-c>", "<Esc>")
+
+keymap("n", "Q", "<nop>")
+keymap("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
+keymap("n", "<leader>f", vim.lsp.buf.format)
+
+keymap("n", "<C-k>", "<cmd>cnext<CR>zz")
+keymap("n", "<C-j>", "<cmd>cprev<CR>zz")
+keymap("n", "<leader>k", "<cmd>lnext<CR>zz")
+keymap("n", "<leader>j", "<cmd>lprev<CR>zz")
+
+keymap("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+keymap("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
