@@ -2,6 +2,11 @@
 local keymap = vim.keymap.set
 -- Silent keymap option
 local opts = { silent = true }
+local map = vim.api.nvim_set_keymap
+
+-- Options
+noremap = { noremap = true }
+local opts1 = { noremap = true, silent = true }
 
 --Remap space as leader key
 keymap("", "<Space>", "<Nop>", opts)
@@ -71,8 +76,16 @@ keymap("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
 -- Telescope
 keymap("n", "<leader>ff", ":Telescope find_files<CR>", opts)
 keymap("n", "<leader>fg", ":Telescope live_grep<CR>", opts)
+keymap("n", "<leader>fs", ":Telescope grep_string<CR>", opts)
+--map('n', '<leader>/', "<cmd>lua require('telescope.builtin').live_grep { debounce = 5000 }<cr>", noremap)
+
 keymap("n", "<leader>fp", ":Telescope projects<CR>", opts)
 keymap("n", "<leader>fb", ":Telescope buffers<CR>", opts)
+keymap("n", "<leader>sw", ":Telescope diagnostics<CR>", opts)
+keymap("n", "<leader>ps", function()
+  require("telescope.builtin").grep_string({ search = vim.fn.input("Grep > ") })
+end)
+
 -- Eslint
 keymap("n", "<leader>;", ":EslintFixAll<CR>", opts)
 

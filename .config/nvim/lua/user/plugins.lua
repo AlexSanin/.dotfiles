@@ -43,54 +43,58 @@ return packer.startup(function(use)
   -- using packer.nvim
   use 'wbthomason/packer.nvim'
   -- My plugins here
-  use { "lewis6991/impatient.nvim" }
-  use { "lukas-reineke/indent-blankline.nvim" }
-  use { "goolord/alpha-nvim" }
-  use { "ahmedkhalf/project.nvim" }
+  use { "lewis6991/impatient.nvim" } --increase lua script loading time
+  use { "lukas-reineke/indent-blankline.nvim" } --show indent line on the left
+  use { "goolord/alpha-nvim" } --startup screen nvim
+  --use { "ahmedkhalf/project.nvim" }
+  use { "RRethy/vim-illuminate" } --highlights word useage unde cursor
   --lsp
-  use { "RRethy/vim-illuminate" }
-use {
-  'VonHeikemen/lsp-zero.nvim',
-  requires = {
-    -- LSP Support
-    {'neovim/nvim-lspconfig'},
-    {'williamboman/mason.nvim'},
-    {'williamboman/mason-lspconfig.nvim'},
+  use {
+    'VonHeikemen/lsp-zero.nvim',
+    requires = {
+      -- LSP Support
+      { 'neovim/nvim-lspconfig' },
+      { 'williamboman/mason.nvim' },
+      { 'williamboman/mason-lspconfig.nvim' },
 
-    -- Autocompletion
-    {'hrsh7th/nvim-cmp'},
-    {'hrsh7th/cmp-buffer'},
-    {'hrsh7th/cmp-path'},
-    {'saadparwaiz1/cmp_luasnip'},
-    {'hrsh7th/cmp-nvim-lsp'},
-    {'hrsh7th/cmp-nvim-lua'},
+      -- Autocompletion
+      { 'hrsh7th/nvim-cmp' },
+      { 'hrsh7th/cmp-buffer' },
+      { 'hrsh7th/cmp-path' },
+      { 'saadparwaiz1/cmp_luasnip' },
+      { 'hrsh7th/cmp-nvim-lsp' },
+      { 'hrsh7th/cmp-nvim-lua' },
 
-    -- Snippets
-    {'L3MON4D3/LuaSnip'},
-    {'rafamadriz/friendly-snippets'},
+      -- Snippets
+      { 'L3MON4D3/LuaSnip' },
+      { 'rafamadriz/friendly-snippets' },
+    }
   }
-}
   --Themes
-  use { "kyazdani42/nvim-web-devicons", opt = true }
-  use { "akinsho/bufferline.nvim" }
-  use { "nvim-lualine/lualine.nvim" }
+  use { "akinsho/bufferline.nvim" } --configur tabs
+  use { "nvim-lualine/lualine.nvim" } --bottom line
   -- Colorschemes
-  use 'morhetz/gruvbox'
-  use 'shaunsingh/solarized.nvim'
-  use 'NLKNguyen/papercolor-theme'
-  use "folke/tokyonight.nvim" 
+  use 'sainnhe/gruvbox-material'
   use 'martinsione/darkplus.nvim'
+  use 'rose-pine/neovim'
   --Telescope
   use {
-  'nvim-telescope/telescope.nvim', tag = '0.1.0',
-  -- or                            , branch = '0.1.x',
-  requires = { {'nvim-lua/plenary.nvim'} }
+    'nvim-telescope/telescope.nvim', tag = '0.1.0',
+    -- or                            , branch = '0.1.x',
+    requires = { { 'nvim-lua/plenary.nvim' } }
   }
-  use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+  use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
   --Treesitter
-  use 'nvim-treesitter/nvim-treesitter'
-  --File tree 
-  use 'kyazdani42/nvim-tree.lua'
+  use {
+    'nvim-treesitter/nvim-treesitter',
+    requires = {
+      'nvim-tree/nvim-web-devicons', -- optional, for file icons
+    },
+  }
+
+  --File tree
+  use 'nvim-tree/nvim-tree.lua'
+  --use 'kyazdani42/nvim-tree.lua'
   --git
   use {
     'lewis6991/gitsigns.nvim',
@@ -98,8 +102,6 @@ use {
   }
   use "tpope/vim-fugitive"
   --
-  use 'jose-elias-alvarez/null-ls.nvim' -- Use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua
-  use("jayp0521/mason-null-ls.nvim") -- bridges gap b/w mason & null-ls
   use "mbbill/undotree"
 
 

@@ -129,6 +129,7 @@ alias mysqll="mysql -u root  -h 127.0.0.1 -P 3306 -proot"
 
 export PATH=$PATH:$HOME/bin
 export PATH="/usr/local/sbin:$PATH"
+export PATH="/Users/sas/.local/bin:$PATH"
 
 #alias gc
 # Functions
@@ -136,3 +137,4 @@ gtdc () {
   container=${1}
   docker-compose exec -u root $container bash -l
 }
+export HISTTIMEFORMAT="%d/%m/%y %T "
