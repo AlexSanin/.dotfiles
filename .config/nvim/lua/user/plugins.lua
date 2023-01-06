@@ -77,6 +77,7 @@ return packer.startup(function(use)
   use 'sainnhe/gruvbox-material'
   use 'martinsione/darkplus.nvim'
   use 'rose-pine/neovim'
+  use 'navarasu/onedark.nvim'
   --Telescope
   use {
     'nvim-telescope/telescope.nvim', tag = '0.1.0',

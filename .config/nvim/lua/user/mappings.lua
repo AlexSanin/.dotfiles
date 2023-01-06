@@ -77,7 +77,7 @@ keymap("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
 keymap("n", "<leader>ff", ":Telescope find_files<CR>", opts)
 keymap("n", "<leader>fg", ":Telescope live_grep<CR>", opts)
 keymap("n", "<leader>fs", ":Telescope grep_string<CR>", opts)
---map('n', '<leader>/', "<cmd>lua require('telescope.builtin').live_grep { debounce = 5000 }<cr>", noremap)
+keymap('n', '<C-p>', ":Telescope git_files<CR>", opts)
 
 keymap("n", "<leader>fp", ":Telescope projects<CR>", opts)
 keymap("n", "<leader>fb", ":Telescope buffers<CR>", opts)
