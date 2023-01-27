@@ -74,7 +74,6 @@ return packer.startup(function(use)
   use { "akinsho/bufferline.nvim" } --configur tabs
   use { "nvim-lualine/lualine.nvim" } --bottom line
   -- Colorschemes
-  use 'sainnhe/gruvbox-material'
   use 'martinsione/darkplus.nvim'
   use 'rose-pine/neovim'
   use 'navarasu/onedark.nvim'
@@ -104,6 +103,14 @@ return packer.startup(function(use)
   use "tpope/vim-fugitive"
   --
   use "mbbill/undotree"
+  --Tests
+
+  use {
+    "klen/nvim-test",
+    config = function()
+      require('nvim-test').setup()
+    end
+  }
 
 
   -- Automatically set up your configuration after cloning packer.nvim

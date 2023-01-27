@@ -132,3 +132,8 @@ keymap("n", "<leader>j", "<cmd>lprev<CR>zz")
 
 keymap("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 keymap("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
+keymap("n", "gx", [[nexecute '!open ' . shellescape(expand('<cfile>'), 1)<CR>]])
+
+--Tests
+keymap("n", "<leader>tn", ":TestNearest<CR>")
+keymap("n", "<leader>tf", ":TestFile<CR>", opts)

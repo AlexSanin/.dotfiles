@@ -10,8 +10,9 @@ fi
 
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/sas/.oh-my-zsh"
-export FRONT="/Users/sas/work/mackey/front-end"
-export work="/Users/sas/work/mackey"
+export FRONT="/Users/sas/work/verity/front-end"
+export PRJ="/Users/sas/bookmarks/i/it/projects"
+export work="/Users/sas/work/verity"
 export NCONF="/Users/sas/.config/nvim"
 
 export mk="/Users/sas/work/mackey/$1"
