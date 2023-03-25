@@ -19,6 +19,9 @@ vim.g.mapleader = " "
 --   visual_block_mode = "x",
 --   term_mode = "t",
 --   command_mode = "c",
+--   LSP
+keymap("n", "<leader>rn", vim.lsp.buf.rename, opts)
+keymap("n", "<leader>ca", vim.lsp.buf.code_action, opts)
 
 -- Normal --
 -- Better window navigation
@@ -135,5 +138,8 @@ keymap("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 keymap("n", "gx", [[nexecute '!open ' . shellescape(expand('<cfile>'), 1)<CR>]])
 
 --Tests
-keymap("n", "<leader>tn", ":TestNearest<CR>")
+keymap("n", "<leader>tn", ":TestNearest<CR>", opts)
 keymap("n", "<leader>tf", ":TestFile<CR>", opts)
+--GIT fugitive
+-- greatest remap ever
+keymap("x", "<leader>p", [["_dP]])

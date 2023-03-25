@@ -9,11 +9,15 @@ fi
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/sas/.oh-my-zsh"
-export FRONT="/Users/sas/work/verity/front-end"
-export PRJ="/Users/sas/bookmarks/i/it/projects"
-export work="/Users/sas/work/verity"
-export NCONF="/Users/sas/.config/nvim"
+export zsh="/Users/sas/.oh-my-zsh"
+export fe="/Users/sas/work/verity/front-end"
+export ad="/Users/sas/work/verity/office365-addins/office365-word-addin/"
+export e2="/Users/sas/work/verity/e2e/"
+export e2e="/Users/sas/work/verity/e2e/e2e-tests/e2e-cypress/"
+export pj="/Users/sas/bookmarks/i/it/projects"
+export w="/Users/sas/work/verity"
+export c="/Users/sas/.config/nvim"
+export i="/Users/sas/bookmarks/i/it/index/"
 
 export mk="/Users/sas/work/mackey/$1"
 export NVM_DIR=~/.nvm
@@ -91,7 +95,7 @@ plugins=(
   zsh-syntax-highlighting
   zsh-autosuggestions
 )
-source $ZSH/oh-my-zsh.sh
+source $zsh/oh-my-zsh.sh
 source /Users/sas/.bash_profile
 source $(brew --prefix nvm)/nvm.sh
 # User configuration
@@ -132,9 +136,12 @@ export PATH=$PATH:$HOME/bin
 export PATH="/usr/local/sbin:$PATH"
 export PATH="/Users/sas/.local/bin:$PATH"
 
+export CYPRESS_RMS_HOME_URL=http://localhost:8081
+export CYPRESS_RMS_API_URL=http://localhost:8082
+
 #alias gc
 # Functions
-gtdc () {
+dce () {
   container=${1}
   docker-compose exec -u root $container bash -l
 }
