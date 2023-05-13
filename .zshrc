@@ -130,7 +130,7 @@ alias=nvim="nvim"
 alias zs="nvim /Users/sas/.zshrc"
 alias chrome="open -a 'Google Chrome'"
 alias df="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
-alias mysqll="mysql -u root  -h 127.0.0.1 -P 3306 -proot"   
+alias mysqll="mysql -u root -h 127.0.0.1 -P 3306 -proot"   
 
 export PATH=$PATH:$HOME/bin
 export PATH="/usr/local/sbin:$PATH"

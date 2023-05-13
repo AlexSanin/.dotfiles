@@ -43,11 +43,11 @@ return packer.startup(function(use)
   -- using packer.nvim
   use 'wbthomason/packer.nvim'
   -- My plugins here
-  use { "lewis6991/impatient.nvim" } --increase lua script loading time
+  use { "lewis6991/impatient.nvim" }            --increase lua script loading time
   use { "lukas-reineke/indent-blankline.nvim" } --show indent line on the left
-  use { "goolord/alpha-nvim" } --startup screen nvim
+  use { "goolord/alpha-nvim" }                  --startup screen nvim
   --use { "ahmedkhalf/project.nvim" }
-  use { "RRethy/vim-illuminate" } --highlights word useage unde cursor
+  use { "RRethy/vim-illuminate" }               --highlights word useage unde cursor
   --lsp
   use {
     'VonHeikemen/lsp-zero.nvim',
@@ -71,7 +71,7 @@ return packer.startup(function(use)
     }
   }
   --Themes
-  use { "akinsho/bufferline.nvim" } --configur tabs
+  use { "akinsho/bufferline.nvim" }   --configur tabs
   use { "nvim-lualine/lualine.nvim" } --bottom line
   -- Colorschemes
   use 'martinsione/darkplus.nvim'
@@ -111,6 +111,7 @@ return packer.startup(function(use)
       require('nvim-test').setup()
     end
   }
+
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
