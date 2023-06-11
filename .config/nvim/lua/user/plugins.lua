@@ -71,12 +71,16 @@ return packer.startup(function(use)
     }
   }
   --Themes
-  use { "akinsho/bufferline.nvim" }   --configur tabs
-  use { "nvim-lualine/lualine.nvim" } --bottom line
-  -- Colorschemes
-  use 'martinsione/darkplus.nvim'
+  use { "ellisonleao/gruvbox.nvim" }
   use 'rose-pine/neovim'
   use 'navarasu/onedark.nvim'
+  use 'shaunsingh/nord.nvim'
+  use { "catppuccin/nvim", as = "catppuccin" }
+  use { 'akinsho/bufferline.nvim' }
+  use {
+    'nvim-lualine/lualine.nvim',
+  }
+  use 'nvim-tree/nvim-web-devicons'
   --Telescope
   use {
     'nvim-telescope/telescope.nvim', tag = '0.1.0',
@@ -87,14 +91,10 @@ return packer.startup(function(use)
   --Treesitter
   use {
     'nvim-treesitter/nvim-treesitter',
-    requires = {
-      'nvim-tree/nvim-web-devicons', -- optional, for file icons
-    },
   }
 
   --File tree
   use 'nvim-tree/nvim-tree.lua'
-  --use 'kyazdani42/nvim-tree.lua'
   --git
   use {
     'lewis6991/gitsigns.nvim',
@@ -104,14 +104,15 @@ return packer.startup(function(use)
   --
   use "mbbill/undotree"
   --Tests
-
   use {
-    "klen/nvim-test",
-    config = function()
-      require('nvim-test').setup()
-    end
+    "nvim-neotest/neotest",
+    requires = {
+      "antoinemadec/FixCursorHold.nvim",
+      'haydenmeade/neotest-jest',
+    }
   }
 
+  use 'mfussenegger/nvim-dap'
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

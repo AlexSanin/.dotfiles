@@ -103,6 +103,8 @@ keymap("n", "<C-d>", "<C-d>zz")
 keymap("n", "<C-u>", "<C-u>zz")
 keymap("n", "n", "nzzzv")
 keymap("n", "N", "Nzzzv")
+--save file
+keymap("n", "<c-s>", ":w<cr>")
 
 keymap("n", "<leader>vwm", function()
   require("vim-with-me").StartVimWithMe()

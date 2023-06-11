@@ -10,16 +10,16 @@ fi
 
 # Path to your oh-my-zsh installation.
 export zsh="/Users/sas/.oh-my-zsh"
-export fe="/Users/sas/work/verity/front-end"
-export ad="/Users/sas/work/verity/office365-addins/office365-word-addin/"
-export e2="/Users/sas/work/verity/e2e/"
-export e2e="/Users/sas/work/verity/e2e/e2e-tests/e2e-cypress/"
+export fe="/Users/sas/rms/front-end"
+export ad="/Users/sas/rms/office365-addins/office365-word-addin/"
+export e2="/Users/sas/rms/e2e/"
+export e2e="/Users/sas/rms/e2e/e2e-tests/e2e-cypress/"
 export pj="/Users/sas/bookmarks/i/it/projects"
-export w="/Users/sas/work/verity"
+export w="/Users/sas/rms"
 export c="/Users/sas/.config/nvim"
-export i="/Users/sas/bookmarks/i/it/index/"
+export it="/Users/sas/bookmarks/i/it"
 
-export mk="/Users/sas/work/mackey/$1"
+export mk="/Users/sas//mackey/$1"
 export NVM_DIR=~/.nvm
 
 # Set name of the theme to load --- if set to "random", it will
@@ -129,20 +129,19 @@ source $(brew --prefix nvm)/nvm.sh
 alias=nvim="nvim"
 alias zs="nvim /Users/sas/.zshrc"
 alias chrome="open -a 'Google Chrome'"
-alias df="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
+alias df='/usr/bin/git --git-dir=/Users/sas/.dotfiles/ --work-tree=/Users/sas'
 alias mysqll="mysql -u root -h 127.0.0.1 -P 3306 -proot"   
+alias mysql=/usr/local/mysql/bin/mysql
 
 export PATH=$PATH:$HOME/bin
 export PATH="/usr/local/sbin:$PATH"
 export PATH="/Users/sas/.local/bin:$PATH"
+export PATH=/Library/Frameworks/Python.framework/Versions/2.7/bin:$PATH
 
 export CYPRESS_RMS_HOME_URL=http://localhost:8081
 export CYPRESS_RMS_API_URL=http://localhost:8082
 
-#alias gc
-# Functions
-dce () {
-  container=${1}
-  docker-compose exec -u root $container bash -l
-}
 export HISTTIMEFORMAT="%d/%m/%y %T "
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
