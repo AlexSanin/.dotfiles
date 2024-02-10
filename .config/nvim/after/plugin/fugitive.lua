@@ -1,4 +1,3 @@
-vim.keymap.set("n", "<leader>gs", vim.cmd.Git)
 
 local sas = vim.api.nvim_create_augroup("sas", {})
 
@@ -27,3 +26,4 @@ autocmd("BufWinEnter", {
         vim.keymap.set("n", "<leader>t", ":Git push -u origin ", opts);
     end,
 })
+

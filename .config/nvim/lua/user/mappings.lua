@@ -92,6 +92,11 @@ end)
 keymap("n", "<leader>;", ":EslintFixAll<CR>", opts)
 
 -- Git
+--" setup mapping to call :LazyGit
+keymap("n", "<leader>gg", ":LazyGit<CR>")
+
+keymap("n", "<leader>gs", ":Git<CR>", opts)
+keymap('n', '<leader>gb', ':Git blame<CR>', opts)
 
 keymap("n", "<leader>pv", vim.cmd.Ex)
 
@@ -136,7 +141,7 @@ keymap("n", "<leader>j", "<cmd>lprev<CR>zz")
 
 keymap("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 keymap("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
-keymap("n", "gx", [[nexecute '!open ' . shellescape(expand('<cfile>'), 1)<CR>]])
+--keymap("n", "gx", "<cmd>Browse<cr>")
 
 --Tests
 keymap("n", "<leader>tn", ":TestNearest<CR>", opts)
@@ -144,3 +149,54 @@ keymap("n", "<leader>tf", ":TestFile<CR>", opts)
 --GIT fugitive
 -- greatest remap ever
 keymap("x", "<leader>p", [["_dP]])
+keymap("n", "<Leader>to", ":lua close_buffers_and_redraw()<CR>", opts)
+keymap("n", "<Leader>tl", ":lua close_buffers_to_left()<CR>", opts)
+keymap("n", "<Leader>tr", ":lua close_buffers_to_right()<CR>", opts)
+
+--custom function for close tabs
+function _G.close_buffers_and_redraw()
+  -- close all buffers except the current one
+  vim.cmd([[
+    for b in filter(range(1, bufnr('$')), 'v:val != bufnr("%") && buflisted(v:val)')
+      execute 'bdelete' b
+    endfor
+  ]])
+
+  vim.cmd("echom 'Function close_buffers_and_redraw executed'")
+  -- redraw the screen
+  vim.api.nvim_command('redraw!')
+  vim.cmd('redraw!')
+end
+
+function _G.close_buffers_to_left()
+  local current_bufnr = vim.api.nvim_get_current_buf()
+
+  -- close all buffers to the left of the current one
+  vim.cmd(string.format([[
+    for b in filter(range(1, %d), 'buflisted(v:val)')
+      execute 'bdelete' b
+    endfor
+  ]], current_bufnr - 1))
+
+  -- redraw the screen
+  vim.cmd('redraw!')
+end
+
+function _G.close_buffers_to_right()
+  local current_bufnr = vim.api.nvim_get_current_buf()
+  local max_bufnr = vim.fn.bufnr("$")
+
+  -- Close all buffers to the right of the current one
+  vim.cmd(string.format([[
+    for b in filter(range(%d, %d), 'buflisted(v:val)')
+      execute 'bdelete' b
+    endfor
+  ]], current_bufnr + 1, max_bufnr))
+
+  -- Redraw the screen
+  vim.cmd('redraw!')
+end
+
+
+-- Mapping gx to open URL under cursor
+keymap('n', 'gx', ':lua (function() local url = vim.fn.expand("<cfile>"); local command = ""; if vim.fn.has("mac") == 1 then command = "open"; elseif vim.fn.has("unix") == 1 then command = "xdg-open"; elseif vim.fn.has("win32") == 1 or vim.fn.has("win64") == 1 then command = "start"; end; if command ~= "" then vim.cmd("! " .. command .. " " .. url); else print("Unsupported OS for URL opening"); end end)()<CR>', {noremap = true, silent = true})

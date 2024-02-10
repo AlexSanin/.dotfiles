@@ -49,8 +49,8 @@ local function save_profiles(threshold)
 end
 
 time([[Luarocks path setup]], true)
-local package_path_str = "/Users/sas/.cache/nvim/packer_hererocks/2.1.0-beta3/share/lua/5.1/?.lua;/Users/sas/.cache/nvim/packer_hererocks/2.1.0-beta3/share/lua/5.1/?/init.lua;/Users/sas/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/luarocks/rocks-5.1/?.lua;/Users/sas/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/luarocks/rocks-5.1/?/init.lua"
-local install_cpath_pattern = "/Users/sas/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/lua/5.1/?.so"
+local package_path_str = "/Users/sas/.cache/nvim/packer_hererocks/2.1.1707061634/share/lua/5.1/?.lua;/Users/sas/.cache/nvim/packer_hererocks/2.1.1707061634/share/lua/5.1/?/init.lua;/Users/sas/.cache/nvim/packer_hererocks/2.1.1707061634/lib/luarocks/rocks-5.1/?.lua;/Users/sas/.cache/nvim/packer_hererocks/2.1.1707061634/lib/luarocks/rocks-5.1/?/init.lua"
+local install_cpath_pattern = "/Users/sas/.cache/nvim/packer_hererocks/2.1.1707061634/lib/lua/5.1/?.so"
 if not string.find(package.path, package_path_str, 1, true) then
   package.path = package.path .. ';' .. package_path_str
 end
@@ -99,6 +99,11 @@ _G.packer_plugins = {
     path = "/Users/sas/.local/share/nvim/site/pack/packer/start/catppuccin",
     url = "https://github.com/catppuccin/nvim"
   },
+  ["close-buffers.nvim"] = {
+    loaded = true,
+    path = "/Users/sas/.local/share/nvim/site/pack/packer/start/close-buffers.nvim",
+    url = "https://github.com/kazhala/close-buffers.nvim"
+  },
   ["cmp-buffer"] = {
     loaded = true,
     path = "/Users/sas/.local/share/nvim/site/pack/packer/start/cmp-buffer",
@@ -139,15 +144,21 @@ _G.packer_plugins = {
     path = "/Users/sas/.local/share/nvim/site/pack/packer/start/gruvbox.nvim",
     url = "https://github.com/ellisonleao/gruvbox.nvim"
   },
+  ["gx.nvim"] = {
+    loaded = true,
+    path = "/Users/sas/.local/share/nvim/site/pack/packer/start/gx.nvim",
+    url = "https://github.com/chrishrb/gx.nvim"
+  },
   ["impatient.nvim"] = {
     loaded = true,
     path = "/Users/sas/.local/share/nvim/site/pack/packer/start/impatient.nvim",
     url = "https://github.com/lewis6991/impatient.nvim"
   },
-  ["indent-blankline.nvim"] = {
+  ["lazygit.nvim"] = {
+    config = { "\27LJ\2\nL\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0'\2\3\0B\0\2\1K\0\1\0\flazygit\19load_extension\14telescope\frequire\0" },
     loaded = true,
-    path = "/Users/sas/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim",
-    url = "https://github.com/lukas-reineke/indent-blankline.nvim"
+    path = "/Users/sas/.local/share/nvim/site/pack/packer/start/lazygit.nvim",
+    url = "https://github.com/kdheepak/lazygit.nvim"
   },
   ["lsp-zero.nvim"] = {
     loaded = true,
@@ -183,6 +194,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/sas/.local/share/nvim/site/pack/packer/start/neovim",
     url = "https://github.com/rose-pine/neovim"
+  },
+  ["night-owl.nvim"] = {
+    loaded = true,
+    path = "/Users/sas/.local/share/nvim/site/pack/packer/start/night-owl.nvim",
+    url = "https://github.com/oxfist/night-owl.nvim"
   },
   ["nord.nvim"] = {
     loaded = true,
@@ -244,10 +260,30 @@ _G.packer_plugins = {
     path = "/Users/sas/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
   },
+  ["tokyonight.nvim"] = {
+    loaded = true,
+    path = "/Users/sas/.local/share/nvim/site/pack/packer/start/tokyonight.nvim",
+    url = "https://github.com/folke/tokyonight.nvim"
+  },
   undotree = {
     loaded = true,
     path = "/Users/sas/.local/share/nvim/site/pack/packer/start/undotree",
     url = "https://github.com/mbbill/undotree"
+  },
+  ["vim-dadbod"] = {
+    loaded = true,
+    path = "/Users/sas/.local/share/nvim/site/pack/packer/start/vim-dadbod",
+    url = "https://github.com/tpope/vim-dadbod"
+  },
+  ["vim-dadbod-completion"] = {
+    loaded = true,
+    path = "/Users/sas/.local/share/nvim/site/pack/packer/start/vim-dadbod-completion",
+    url = "https://github.com/kristijanhusak/vim-dadbod-completion"
+  },
+  ["vim-dadbod-ui"] = {
+    loaded = true,
+    path = "/Users/sas/.local/share/nvim/site/pack/packer/start/vim-dadbod-ui",
+    url = "https://github.com/kristijanhusak/vim-dadbod-ui"
   },
   ["vim-fugitive"] = {
     loaded = true,
@@ -258,10 +294,19 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/sas/.local/share/nvim/site/pack/packer/start/vim-illuminate",
     url = "https://github.com/RRethy/vim-illuminate"
+  },
+  ["vim-monochrome"] = {
+    loaded = true,
+    path = "/Users/sas/.local/share/nvim/site/pack/packer/start/vim-monochrome",
+    url = "https://github.com/fxn/vim-monochrome"
   }
 }
 
 time([[Defining packer_plugins]], false)
+-- Config for: lazygit.nvim
+time([[Config for lazygit.nvim]], true)
+try_loadstring("\27LJ\2\nL\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0'\2\3\0B\0\2\1K\0\1\0\flazygit\19load_extension\14telescope\frequire\0", "config", "lazygit.nvim")
+time([[Config for lazygit.nvim]], false)
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then

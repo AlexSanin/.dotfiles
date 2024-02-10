@@ -14,7 +14,6 @@ if fn.empty(fn.glob(install_path)) > 0 then
   print "Installing packer close and reopen Neovim..."
   vim.cmd [[packadd packer.nvim]]
 end
-
 -- Autocommand that reloads neovim whenever you save the plugins.lua file
 vim.cmd [[
   augroup packer_user_config
@@ -43,11 +42,10 @@ return packer.startup(function(use)
   -- using packer.nvim
   use 'wbthomason/packer.nvim'
   -- My plugins here
-  use { "lewis6991/impatient.nvim" }            --increase lua script loading time
-  use { "lukas-reineke/indent-blankline.nvim" } --show indent line on the left
-  use { "goolord/alpha-nvim" }                  --startup screen nvim
+  use { "lewis6991/impatient.nvim" } --increase lua script loading time
+  use { "goolord/alpha-nvim" }       --startup screen nvim
   --use { "ahmedkhalf/project.nvim" }
-  use { "RRethy/vim-illuminate" }               --highlights word useage unde cursor
+  use { "RRethy/vim-illuminate" }    --highlights word useage unde cursor
   --lsp
   use {
     'VonHeikemen/lsp-zero.nvim',
@@ -71,16 +69,17 @@ return packer.startup(function(use)
     }
   }
   --Themes
+  use { "catppuccin/nvim", as = "catppuccin" }
   use { "ellisonleao/gruvbox.nvim" }
   use 'rose-pine/neovim'
   use 'navarasu/onedark.nvim'
   use 'shaunsingh/nord.nvim'
-  use { "catppuccin/nvim", as = "catppuccin" }
   use { 'akinsho/bufferline.nvim' }
-  use {
-    'nvim-lualine/lualine.nvim',
-  }
+  use { 'nvim-lualine/lualine.nvim', }
   use 'nvim-tree/nvim-web-devicons'
+  use "folke/tokyonight.nvim"
+  use 'fxn/vim-monochrome'
+  use("oxfist/night-owl.nvim")
   --Telescope
   use {
     'nvim-telescope/telescope.nvim', tag = '0.1.0',
@@ -101,6 +100,17 @@ return packer.startup(function(use)
     -- tag = 'release' -- To use the latest release (do not use this if you run Neovim nightly or dev builds!)
   }
   use "tpope/vim-fugitive"
+  -- nvim v0.7.2
+  use({
+    "kdheepak/lazygit.nvim",
+    requires = {
+      "nvim-telescope/telescope.nvim",
+      "nvim-lua/plenary.nvim",
+    },
+    config = function()
+      require("telescope").load_extension("lazygit")
+    end,
+  })
   --
   use "mbbill/undotree"
   --Tests
@@ -113,6 +123,15 @@ return packer.startup(function(use)
   }
 
   use 'mfussenegger/nvim-dap'
+
+  --DB
+  use 'tpope/vim-dadbod'
+  use 'kristijanhusak/vim-dadbod-ui'
+  use 'kristijanhusak/vim-dadbod-completion'
+  --Buffers management
+  use 'kazhala/close-buffers.nvim'
+  -- opew website vim
+  use 'chrishrb/gx.nvim'
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

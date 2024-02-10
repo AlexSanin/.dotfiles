@@ -20,10 +20,8 @@ require('telescope').setup {
     prompt_prefix = "$ ",
     layout_config = { width = 0.99 },
     buffer_previewer_maker = new_maker,
-    hidden = true
-  },
-  find_files = {
-    hidden = true
+    hidden = true,
+    find_command = { 'fd', '--type', 'f', '--no-ignore-vcs' },
   },
   extensions = {
     fzf = {
@@ -32,6 +30,17 @@ require('telescope').setup {
       override_file_sorter = true,    -- override the file sorter
       case_mode = "smart_case",       -- or "ignore_case" or "respect_case"
     },
+  },
+  pickers = {
+    find_files = {
+      hidden = true,
+      -- uncomment this if want find inside .gitignore 
+      --no_ignore = true,
+      find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/*" },
+    },
+    colorscheme = {
+      enable_preview = true
+    }
   },
 }
 

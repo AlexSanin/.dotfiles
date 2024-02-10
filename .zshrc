@@ -12,14 +12,12 @@ fi
 export zsh="/Users/sas/.oh-my-zsh"
 export fe="/Users/sas/rms/front-end"
 export ad="/Users/sas/rms/office365-addins/office365-word-addin/"
-export e2="/Users/sas/rms/e2e/"
-export e2e="/Users/sas/rms/e2e/e2e-tests/e2e-cypress/"
 export pj="/Users/sas/bookmarks/i/it/projects"
 export w="/Users/sas/rms"
 export c="/Users/sas/.config/nvim"
 export it="/Users/sas/bookmarks/i/it"
+export iti="/Users/sas/bookmarks/i/it/index"
 
-export mk="/Users/sas//mackey/$1"
 export NVM_DIR=~/.nvm
 
 # Set name of the theme to load --- if set to "random", it will
@@ -105,12 +103,12 @@ source $(brew --prefix nvm)/nvm.sh
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+#Preferred editor for local and remote sessions
+ if [[ -n $SSH_CONNECTION ]]; then
+   export EDITOR='vim'
+ else
+   export EDITOR='nvim'
+ fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -131,17 +129,34 @@ alias zs="nvim /Users/sas/.zshrc"
 alias chrome="open -a 'Google Chrome'"
 alias df='/usr/bin/git --git-dir=/Users/sas/.dotfiles/ --work-tree=/Users/sas'
 alias mysqll="mysql -u root -h 127.0.0.1 -P 3306 -proot"   
-alias mysql=/usr/local/mysql/bin/mysql
+alias mysqle2e="mysql -u root -h 127.0.0.1 -P 3333 -proot"   
+alias du='dcup'
+alias ds='dcstop'
+alias dl='dlogs'
+alias de='dexec'
 
+export PATH="$PATH:$HOME/.rvm/bin"
 export PATH=$PATH:$HOME/bin
-export PATH="/usr/local/sbin:$PATH"
-export PATH="/Users/sas/.local/bin:$PATH"
-export PATH=/Library/Frameworks/Python.framework/Versions/2.7/bin:$PATH
-
-export CYPRESS_RMS_HOME_URL=http://localhost:8081
-export CYPRESS_RMS_API_URL=http://localhost:8082
-
 export HISTTIMEFORMAT="%d/%m/%y %T "
+export PATH="/usr/local/bin:$PATH"
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
+export PATH="/usr/local/sbin:$PATH"
+# Define function for starting a service
+dcup() {
+  docker-compose up -d "$@"
+}
+
+# Define function for stopping a service
+dcstop() {
+  docker-compose stop "$@"
+}
+
+dlogs() {
+  docker-compose logs -f "$@"
+}
+
+dexec() {
+  docker-compose exec -it "$@" sh
+}
+

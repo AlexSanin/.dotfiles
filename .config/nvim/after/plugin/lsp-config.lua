@@ -1,36 +1,25 @@
-local lsp = require('lsp-zero').preset({})
+local lsp_zero = require('lsp-zero')
 
-require 'lspconfig'.sqlls.setup {
-  cmd = { "/Users/sas/.local/share/nvim/mason/bin/sql-language-server", "up", "--method", "stdio" },
-  filetypes = { "sql", "mysql" },
-  root_dir = function(fname)
-    return require 'lspconfig'.util.path.dirname(fname)
-  end,
-  settings = {},
-}
-
-require'lspconfig'.solargraph.setup {
-  settings = {
-    solargraph = {
-      diagnostics = true
-    }
-  }
-}
-
-lsp.on_attach(function(client, bufnr)
-  lsp.default_keymaps({ buffer = bufnr })
+lsp_zero.on_attach(function(client, bufnr)
+  -- see :help lsp-zero-keybindings
+  -- to learn the available actions
+  lsp_zero.default_keymaps({ buffer = bufnr })
 end)
 
-lsp.ensure_installed({
-  -- Replace these with whatever servers you want to install
-  'tsserver',
-  'eslint',
-  'rust_analyzer',
-  'sqlls'
+-- to learn how to use mason.nvim with lsp-zero
+-- read this: https://github.com/VonHeikemen/lsp-zero.nvim/blob/v3.x/doc/md/guides/integrate-with-mason-nvim.md
+require('mason').setup({})
+require('mason-lspconfig').setup({
+  ensure_installed = {
+    "tsserver",
+    "eslint",
+    "rust_analyzer",
+    "sqlls",
+  },
+  handlers = {
+    lsp_zero.default_setup,
+  },
 })
-
-
-lsp.setup()
 
 --show diagnostic
 vim.diagnostic.config({
