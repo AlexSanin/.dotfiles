@@ -2,7 +2,6 @@
 local keymap = vim.keymap.set
 -- Silent keymap option
 local opts = { silent = true }
-local map = vim.api.nvim_set_keymap
 
 -- Options
 noremap = { noremap = true }
@@ -144,8 +143,9 @@ keymap("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 --keymap("n", "gx", "<cmd>Browse<cr>")
 
 --Tests
-keymap("n", "<leader>tn", ":TestNearest<CR>", opts)
-keymap("n", "<leader>tf", ":TestFile<CR>", opts)
+keymap("n", "<leader>tn", ":Neotest run<CR>", opts)
+keymap("n", "<leader>ts", ":Neotest summary<CR>", opts)
+keymap("n", "<leader>tf", ":Neotest run file<CR>", opts)
 --GIT fugitive
 -- greatest remap ever
 keymap("x", "<leader>p", [["_dP]])

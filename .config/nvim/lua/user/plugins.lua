@@ -79,7 +79,7 @@ return packer.startup(function(use)
   use 'nvim-tree/nvim-web-devicons'
   use "folke/tokyonight.nvim"
   use 'fxn/vim-monochrome'
-  use("oxfist/night-owl.nvim")
+  use "oxfist/night-owl.nvim"
   --Telescope
   use {
     'nvim-telescope/telescope.nvim', tag = '0.1.0',
@@ -100,7 +100,6 @@ return packer.startup(function(use)
     -- tag = 'release' -- To use the latest release (do not use this if you run Neovim nightly or dev builds!)
   }
   use "tpope/vim-fugitive"
-  -- nvim v0.7.2
   use({
     "kdheepak/lazygit.nvim",
     requires = {
