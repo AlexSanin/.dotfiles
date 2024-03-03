@@ -17,6 +17,7 @@ export w="/Users/sas/rms"
 export c="/Users/sas/.config/nvim"
 export it="/Users/sas/bookmarks/i/it"
 export iti="/Users/sas/bookmarks/i/it/index"
+export ob="/Users/sas/Google Drive/My Drive/My Stuff/obsidian/sas"
 
 export NVM_DIR=~/.nvm
 

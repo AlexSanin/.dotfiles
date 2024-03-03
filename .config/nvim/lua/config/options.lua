@@ -3,3 +3,4 @@
 -- Add any additional options here
 
 vim.opt.mouse = "" -- allow the mouse to be used in neovim
+vim.opt.relativenumber = false
