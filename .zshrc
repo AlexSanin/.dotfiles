@@ -124,7 +124,8 @@ source $(brew --prefix nvm)/nvm.sh
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-alias=nvim="nvim"
+alias v="nvim"
+alias t="tmux"
 alias zs="nvim /Users/sas/.zshrc"
 alias chrome="open -a 'Google Chrome'"
 alias df='/usr/bin/git --git-dir=/Users/sas/.dotfiles/ --work-tree=/Users/sas'
