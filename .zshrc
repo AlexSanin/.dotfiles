@@ -10,13 +10,14 @@ fi
 
 # Path to your oh-my-zsh installation.
 export zsh="/Users/sas/.oh-my-zsh"
+export w="/Users/sas/rms"
 export fe="/Users/sas/rms/front-end"
 export ad="/Users/sas/rms/office365-addins/office365-word-addin/"
-export pj="/Users/sas/bookmarks/i/it/projects"
-export w="/Users/sas/rms"
 export c="/Users/sas/.config/nvim"
+export bm="/Users/sas/bookmarks"
 export it="/Users/sas/bookmarks/i/it"
-export iti="/Users/sas/bookmarks/i/it/index"
+export pj="/Users/sas/bookmarks/i/it/projects"
+export ob="/Users/sas/Google Drive/My Drive/My Stuff/obsidian/sas"
 
 export NVM_DIR=~/.nvm
 
@@ -124,7 +125,7 @@ source $(brew --prefix nvm)/nvm.sh
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-alias=nvim="nvim"
+alias v="nvim"
 alias zs="nvim /Users/sas/.zshrc"
 alias chrome="open -a 'Google Chrome'"
 alias df='/usr/bin/git --git-dir=/Users/sas/.dotfiles/ --work-tree=/Users/sas'

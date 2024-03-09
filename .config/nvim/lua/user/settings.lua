@@ -30,6 +30,7 @@ vim.opt.shortmess:append "c"
 vim.opt.whichwrap:append("<,>,[,],h,l")
 vim.opt.iskeyword:append("-")
 vim.opt.autoindent = true --Good auto indent
+vim.opt.smartindent = true
 vim.opt.autoread = true -- re-read file after changes in another place
 vim.opt.showmatch = true
 
@@ -43,10 +44,8 @@ vim.opt.softtabstop = 2
 vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
 
-vim.opt.smartindent = true
 
 vim.opt.wrap = false
-
 vim.opt.swapfile = false
 vim.opt.backup = false
 vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
@@ -63,4 +62,4 @@ vim.opt.isfname:append("@-@")
 
 vim.opt.updatetime = 50
 
-vim.opt.colorcolumn = "100"
+vim.opt.colorcolumn = "80"
