@@ -197,6 +197,10 @@ function _G.close_buffers_to_right()
   vim.cmd('redraw!')
 end
 
-
 -- Mapping gx to open URL under cursor
-keymap('n', 'gx', ':lua (function() local url = vim.fn.expand("<cfile>"); local command = ""; if vim.fn.has("mac") == 1 then command = "open"; elseif vim.fn.has("unix") == 1 then command = "xdg-open"; elseif vim.fn.has("win32") == 1 or vim.fn.has("win64") == 1 then command = "start"; end; if command ~= "" then vim.cmd("! " .. command .. " " .. url); else print("Unsupported OS for URL opening"); end end)()<CR>', {noremap = true, silent = true})
+keymap('n', 'gx',
+  ':lua (function() local url = vim.fn.expand("<cfile>"); local command = ""; if vim.fn.has("mac") == 1 then command = "open"; elseif vim.fn.has("unix") == 1 then command = "xdg-open"; elseif vim.fn.has("win32") == 1 or vim.fn.has("win64") == 1 then command = "start"; end; if command ~= "" then vim.cmd("! " .. command .. " " .. url); else print("Unsupported OS for URL opening"); end end)()<CR>',
+  { noremap = true, silent = true })
+
+--oil
+keymap("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })

@@ -131,6 +131,10 @@ return packer.startup(function(use)
   use 'kazhala/close-buffers.nvim'
   -- opew website vim
   use 'chrishrb/gx.nvim'
+  use {
+    "ThePrimeagen/harpoon",
+    branch = "harpoon2",
+  }
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

@@ -149,6 +149,11 @@ _G.packer_plugins = {
     path = "/Users/sas/.local/share/nvim/site/pack/packer/start/gx.nvim",
     url = "https://github.com/chrishrb/gx.nvim"
   },
+  harpoon = {
+    loaded = true,
+    path = "/Users/sas/.local/share/nvim/site/pack/packer/start/harpoon",
+    url = "https://github.com/ThePrimeagen/harpoon"
+  },
   ["impatient.nvim"] = {
     loaded = true,
     path = "/Users/sas/.local/share/nvim/site/pack/packer/start/impatient.nvim",
