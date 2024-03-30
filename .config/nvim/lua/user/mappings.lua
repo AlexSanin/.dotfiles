@@ -1,15 +1,11 @@
 -- Shorten function name
 local keymap = vim.keymap.set
 -- Silent keymap option
-local opts = { silent = true }
-
--- Options
-noremap = { noremap = true }
+local opts = { silent = true, noremap = true }
 
 --Remap space as leader key
 keymap("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
-
 -- Modes
 --   normal_mode = "n",
 --   insert_mode = "i",
@@ -21,12 +17,11 @@ vim.g.mapleader = " "
 keymap("n", "<leader>rn", vim.lsp.buf.rename, opts)
 keymap("n", "<leader>ca", vim.lsp.buf.code_action, opts)
 
--- Normal --
 -- Better window navigation
-keymap("n", "<C-h>", "<C-w>h", opts)
-keymap("n", "<C-j>", "<C-w>j", opts)
-keymap("n", "<C-k>", "<C-w>k", opts)
-keymap("n", "<C-l>", "<C-w>l", opts)
+keymap("n", "<C-h>", ":wincmd h", opts)
+keymap("n", "<C-j>", ":wincmd j", opts)
+keymap("n", "<C-k>", ":wincmd k", opts)
+keymap("n", "<C-l>", ":wincmd l", opts)
 
 -- Resize with arrows
 keymap("n", "<M-j>", ":resize -2<CR>", opts)
@@ -69,7 +64,6 @@ keymap("i", "<Right>", "<NOP>")
 keymap("v", "<", "<gv", opts)
 keymap("v", ">", ">gv", opts)
 
--- Plugins --
 
 -- NvimTree
 keymap("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
@@ -96,10 +90,8 @@ keymap("n", "<leader>gg", ":LazyGit<CR>")
 
 keymap("n", "<leader>gs", ":Git<CR>", opts)
 keymap('n', '<leader>gb', ':Git blame<CR>', opts)
-
-keymap("n", "<leader>pv", vim.cmd.Ex)
-
 keymap("v", "J", ":m '>+1<CR>gv=gv")
+
 keymap("v", "K", ":m '<-2<CR>gv=gv")
 
 keymap("n", "J", "mzJ`z")
@@ -140,67 +132,18 @@ keymap("n", "<leader>j", "<cmd>lprev<CR>zz")
 
 keymap("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 keymap("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
---keymap("n", "gx", "<cmd>Browse<cr>")
 
---Tests
-keymap("n", "<leader>tn", ":Neotest run<CR>", opts)
-keymap("n", "<leader>ts", ":Neotest summary<CR>", opts)
-keymap("n", "<leader>tf", ":Neotest run file<CR>", opts)
 --GIT fugitive
--- greatest remap ever
 keymap("x", "<leader>p", [["_dP]])
-keymap("n", "<Leader>to", ":lua close_buffers_and_redraw()<CR>", opts)
-keymap("n", "<Leader>tl", ":lua close_buffers_to_left()<CR>", opts)
-keymap("n", "<Leader>tr", ":lua close_buffers_to_right()<CR>", opts)
-
---custom function for close tabs
-function _G.close_buffers_and_redraw()
-  -- close all buffers except the current one
-  vim.cmd([[
-    for b in filter(range(1, bufnr('$')), 'v:val != bufnr("%") && buflisted(v:val)')
-      execute 'bdelete' b
-    endfor
-  ]])
-
-  vim.cmd("echom 'Function close_buffers_and_redraw executed'")
-  -- redraw the screen
-  vim.api.nvim_command('redraw!')
-  vim.cmd('redraw!')
-end
-
-function _G.close_buffers_to_left()
-  local current_bufnr = vim.api.nvim_get_current_buf()
-
-  -- close all buffers to the left of the current one
-  vim.cmd(string.format([[
-    for b in filter(range(1, %d), 'buflisted(v:val)')
-      execute 'bdelete' b
-    endfor
-  ]], current_bufnr - 1))
-
-  -- redraw the screen
-  vim.cmd('redraw!')
-end
-
-function _G.close_buffers_to_right()
-  local current_bufnr = vim.api.nvim_get_current_buf()
-  local max_bufnr = vim.fn.bufnr("$")
-
-  -- Close all buffers to the right of the current one
-  vim.cmd(string.format([[
-    for b in filter(range(%d, %d), 'buflisted(v:val)')
-      execute 'bdelete' b
-    endfor
-  ]], current_bufnr + 1, max_bufnr))
-
-  -- Redraw the screen
-  vim.cmd('redraw!')
-end
 
 -- Mapping gx to open URL under cursor
 keymap('n', 'gx',
   ':lua (function() local url = vim.fn.expand("<cfile>"); local command = ""; if vim.fn.has("mac") == 1 then command = "open"; elseif vim.fn.has("unix") == 1 then command = "xdg-open"; elseif vim.fn.has("win32") == 1 or vim.fn.has("win64") == 1 then command = "start"; end; if command ~= "" then vim.cmd("! " .. command .. " " .. url); else print("Unsupported OS for URL opening"); end end)()<CR>',
-  { noremap = true, silent = true })
+opts)
 
---oil
-keymap("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+--vim-tmux-navigator
+keymap('n', '<C-h>', ':TmuxNavigateLeft<CR>', opts)
+keymap('n', '<C-j>', ':TmuxNavigateDown<CR>', opts)
+keymap('n', '<C-k>', ':TmuxNavigateUp<CR>', opts)
+keymap('n', '<C-l>', ':TmuxNavigateRight<CR>', opts)
+keymap('n', '<c-\\>', ':TmuxNavigatePrevious<CR>',opts)

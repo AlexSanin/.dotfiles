@@ -14,11 +14,13 @@ local new_maker = function(filepath, bufnr, opts)
     end
   end)
 end
+
 require('telescope').setup {
   defaults = {
     previewer = true,
     prompt_prefix = "$ ",
-    layout_config = { width = 0.99 },
+    layout_strategy = "horizontal",
+    layout_config = { width = 0.99, },
     buffer_previewer_maker = new_maker,
     hidden = true,
     find_command = { 'fd', '--type', 'f', '--no-ignore-vcs' },
@@ -34,7 +36,7 @@ require('telescope').setup {
   pickers = {
     find_files = {
       hidden = true,
-      -- uncomment this if want find inside .gitignore 
+      -- uncomment this if want find inside .gitignore
       --no_ignore = true,
       find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/*" },
     },

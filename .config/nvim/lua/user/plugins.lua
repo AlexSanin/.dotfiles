@@ -112,14 +112,6 @@ return packer.startup(function(use)
   })
   --
   use "mbbill/undotree"
-  --Tests
-  use {
-    "nvim-neotest/neotest",
-    requires = {
-      "antoinemadec/FixCursorHold.nvim",
-      'haydenmeade/neotest-jest',
-    }
-  }
 
   use 'mfussenegger/nvim-dap'
 
@@ -135,6 +127,7 @@ return packer.startup(function(use)
     "ThePrimeagen/harpoon",
     branch = "harpoon2",
   }
+  use 'christoomey/vim-tmux-navigator'
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

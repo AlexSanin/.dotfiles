@@ -74,11 +74,6 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
-  ["FixCursorHold.nvim"] = {
-    loaded = true,
-    path = "/Users/sas/.local/share/nvim/site/pack/packer/start/FixCursorHold.nvim",
-    url = "https://github.com/antoinemadec/FixCursorHold.nvim"
-  },
   LuaSnip = {
     loaded = true,
     path = "/Users/sas/.local/share/nvim/site/pack/packer/start/LuaSnip",
@@ -184,16 +179,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/sas/.local/share/nvim/site/pack/packer/start/mason.nvim",
     url = "https://github.com/williamboman/mason.nvim"
-  },
-  neotest = {
-    loaded = true,
-    path = "/Users/sas/.local/share/nvim/site/pack/packer/start/neotest",
-    url = "https://github.com/nvim-neotest/neotest"
-  },
-  ["neotest-jest"] = {
-    loaded = true,
-    path = "/Users/sas/.local/share/nvim/site/pack/packer/start/neotest-jest",
-    url = "https://github.com/haydenmeade/neotest-jest"
   },
   neovim = {
     loaded = true,
@@ -304,6 +289,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/sas/.local/share/nvim/site/pack/packer/start/vim-monochrome",
     url = "https://github.com/fxn/vim-monochrome"
+  },
+  ["vim-tmux-navigator"] = {
+    loaded = true,
+    path = "/Users/sas/.local/share/nvim/site/pack/packer/start/vim-tmux-navigator",
+    url = "https://github.com/christoomey/vim-tmux-navigator"
   }
 }
 

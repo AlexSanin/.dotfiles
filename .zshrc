@@ -135,6 +135,7 @@ alias du='dcup'
 alias ds='dcstop'
 alias dl='dlogs'
 alias de='dexec'
+alias c='clear'
 
 export PATH="$PATH:$HOME/.rvm/bin"
 export PATH=$PATH:$HOME/bin
