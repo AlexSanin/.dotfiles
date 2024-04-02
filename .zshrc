@@ -128,14 +128,20 @@ source $(brew --prefix nvm)/nvm.sh
 alias v="nvim"
 alias zs="nvim /Users/sas/.zshrc"
 alias chrome="open -a 'Google Chrome'"
-alias df='/usr/bin/git --git-dir=/Users/sas/.dotfiles/ --work-tree=/Users/sas'
+alias c='clear'
+
+#Database connection
 alias mysqll="mysql -u root -h 127.0.0.1 -P 3306 -proot"   
 alias mysqle2e="mysql -u root -h 127.0.0.1 -P 3333 -proot"   
+
+#Docker
 alias du='dcup'
 alias ds='dcstop'
 alias dl='dlogs'
 alias de='dexec'
-alias c='clear'
+#GIT
+alias grb='git branch | grep -v "master" | xargs git branch -D'
+alias df='/usr/bin/git --git-dir=/Users/sas/.dotfiles/ --work-tree=/Users/sas'
 
 export PATH="$PATH:$HOME/.rvm/bin"
 export PATH=$PATH:$HOME/bin
