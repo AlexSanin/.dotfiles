@@ -91,7 +91,9 @@ return packer.startup(function(use)
     'nvim-treesitter/nvim-treesitter',
   }
 
+  --file exporer
   use "stevearc/oil.nvim"
+  use "nvim-tree/nvim-web-devicons"
   --git
   use {
     'lewis6991/gitsigns.nvim',
