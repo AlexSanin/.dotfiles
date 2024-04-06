@@ -13,7 +13,6 @@ vim.opt.showtabline = 0 -- always show tabs
 vim.opt.smartcase = true -- smart case
 vim.opt.splitbelow = true -- force all horizontal splits to go below current window
 vim.opt.splitright = true -- force all vertical splits to go to the right of current window
---vim.opt.timeoutlen = 500 -- time to wait for a mapped sequence to complete (in milliseconds)
 vim.opt.writebackup = false -- if a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited
 vim.opt.smarttab = true
 vim.opt.cursorline = true -- highlight the current line
@@ -23,7 +22,6 @@ vim.opt.showcmd = false
 vim.opt.ruler = true
 vim.opt.numberwidth = 4 -- set number column width to 2 {default 4}
 vim.opt.sidescrolloff = 8
---vim.opt.guifont = "monospace:h17" -- the font used in graphical neovim applications
 vim.opt.guifont = "Fira Code" -- the font used in graphical neovim applications
 vim.opt.fillchars.eob = " "
 vim.opt.shortmess:append "c"

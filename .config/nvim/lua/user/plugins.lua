@@ -76,13 +76,12 @@ return packer.startup(function(use)
   use 'shaunsingh/nord.nvim'
   use { 'akinsho/bufferline.nvim' }
   use { 'nvim-lualine/lualine.nvim', }
-  use 'nvim-tree/nvim-web-devicons'
   use "folke/tokyonight.nvim"
   use 'fxn/vim-monochrome'
   use "oxfist/night-owl.nvim"
   --Telescope
   use {
-    'nvim-telescope/telescope.nvim', tag = '0.1.0',
+    'nvim-telescope/telescope.nvim',
     -- or                            , branch = '0.1.x',
     requires = { { 'nvim-lua/plenary.nvim' } }
   }
@@ -92,8 +91,7 @@ return packer.startup(function(use)
     'nvim-treesitter/nvim-treesitter',
   }
 
-  --File tree
-  use 'nvim-tree/nvim-tree.lua'
+  use "stevearc/oil.nvim"
   --git
   use {
     'lewis6991/gitsigns.nvim',

@@ -30,8 +30,8 @@ keymap("n", "<M-h>", ":vertical resize -2<CR>", opts)
 keymap("n", "<M-l>", ":vertical resize +2<CR>", opts)
 
 -- Navigate buffers
-keymap("n", "<TAB>", ":bnext<CR>", opts)
-keymap("n", "<S-TAB>", ":bprevious<CR>", opts)
+--keymap("n", "<TAB>", ":bnext<CR>", opts)
+--keymap("n", "<S-TAB>", ":bprevious<CR>", opts)
 
 -- Clear highlights
 --keymap("n", "<leader>h", "<cmd>nohlsearch<CR>", opts)
@@ -66,7 +66,7 @@ keymap("v", ">", ">gv", opts)
 
 
 -- NvimTree
-keymap("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
+keymap("n", "<leader>e", ":Oil --float<CR>", opts)
 
 -- Telescope
 keymap("n", "<leader>ff", ":Telescope find_files<CR>", opts)
