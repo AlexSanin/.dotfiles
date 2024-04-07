@@ -1,3 +1,4 @@
+local harpoon = require("harpoon")
 -- Shorten function name
 local keymap = vim.keymap.set
 -- Silent keymap option
@@ -147,3 +148,4 @@ keymap('n', '<C-j>', ':TmuxNavigateDown<CR>', opts)
 keymap('n', '<C-k>', ':TmuxNavigateUp<CR>', opts)
 keymap('n', '<C-l>', ':TmuxNavigateRight<CR>', opts)
 keymap('n', '<c-\\>', ':TmuxNavigatePrevious<CR>',opts)
+--harpoon
