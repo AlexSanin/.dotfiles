@@ -1,0 +1,12 @@
+--require('neotest').setup({
+--  adapters = {
+--    require('neotest-jest')({
+--      jestCommand = "npm run test:react",
+--      jestConfigFile = "jest.config.js",
+--      env = { CI = true },
+--      cwd = function(path)
+--        return vim.fn.getcwd()
+--      end,
+--    }),
+--  }
+--})
