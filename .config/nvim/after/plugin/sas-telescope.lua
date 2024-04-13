@@ -47,3 +47,25 @@ require('telescope').setup {
 }
 
 require('telescope').load_extension('fzf')
+
+-- Shorten function name
+local keymap = vim.keymap.set
+-- Silent keymap option
+local opts = { silent = true, noremap = true }
+
+-- Telescope
+keymap("n", "<leader>ff", ":Telescope find_files<CR>", opts)
+keymap("n", "<leader>fg", ":Telescope live_grep<CR>", opts)
+keymap("n", "<leader>fs", ":Telescope grep_string<CR>", opts)
+keymap("n", "<leader>gr", ":Telescope lsp_references<CR>", opts)
+keymap("n", "<leader>gd", ":Telescope lsp_definitions<CR>", opts)
+keymap('n', '<C-p>', ":Telescope git_files<CR>", opts)
+
+keymap("n", "<leader>fb", ":Telescope buffers<CR>", opts)
+keymap("n", "<leader>vh", ":Telescope help_tags<CR>", opts)
+keymap("n", "<leader>sh", ":Telescope search_history<CR>", opts)
+keymap("n", "<leader>fm", ":Telescope marks<CR>", opts)
+keymap("n", "<leader>sw", ":Telescope diagnostics<CR>", opts)
+keymap("n", "<leader>ps", function()
+  require("telescope.builtin").grep_string({ search = vim.fn.input("Grep > ") })
+end)

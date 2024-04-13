@@ -161,3 +161,8 @@ require("oil").setup({
   },
 })
 
+local keymap = vim.keymap.set
+-- Silent keymap option
+local opts = { silent = true, noremap = true }
+-- Oil
+keymap("n", "<leader>e", ":Oil --float<CR>", opts)

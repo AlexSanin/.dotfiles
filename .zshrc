@@ -147,6 +147,7 @@ export PATH="$PATH:$HOME/.rvm/bin"
 export PATH=$PATH:$HOME/bin
 export HISTTIMEFORMAT="%d/%m/%y %T "
 export PATH="/usr/local/bin:$PATH"
+export XDG_CONFIG_HOME="$HOME/.config/lazygit"
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="/usr/local/sbin:$PATH"
