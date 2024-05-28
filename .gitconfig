@@ -6,6 +6,7 @@
 [core]
 	ignorecase = false
 	excludesfile = /Users/sas/.gitignore
+	editor = nvim
 # define command which will be used when "nvim" is set as a merge tool
 [mergetool "nvim"]
   cmd = nvim -f -c \"Gvdiffsplit!\" \"$MERGED\"
@@ -22,5 +23,3 @@
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
-[alias]
-    wtaddcopy = "!f() { git worktree add \"$1\" && cp \"$2\" \"$1\"; }; f"

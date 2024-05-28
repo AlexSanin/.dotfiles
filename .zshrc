@@ -144,9 +144,23 @@ alias ds='dcstop'
 alias dl='dlogs'
 alias de='dexec'
 #GIT
+# Git worktree add 
+function git-wtadd() {
+  git worktree add "$1"
+}
+
+# Git worktree remove  
+function git-wtr() {
+  git worktree remove "$1"
+}
+
+alias wtadd='git-wtadd'
+alias wtr='git-wtr'
+alias wtl='git worktree list'
 alias grb='git branch | grep -v "master" | xargs git branch -D'
 alias df='/usr/bin/git --git-dir=/Users/sas/.dotfiles/ --work-tree=/Users/sas'
 alias vf='v $(fzf)'
+
 
 export PATH="$PATH:$HOME/.rvm/bin"
 export PATH=$PATH:$HOME/bin
@@ -173,3 +187,4 @@ dlogs() {
 dexec() {
   ($fe && docker-compose exec -it "$@" sh)
 }
+
