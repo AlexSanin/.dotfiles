@@ -49,8 +49,8 @@ local function save_profiles(threshold)
 end
 
 time([[Luarocks path setup]], true)
-local package_path_str = "/Users/sas/.cache/nvim/packer_hererocks/2.1.1710088188/share/lua/5.1/?.lua;/Users/sas/.cache/nvim/packer_hererocks/2.1.1710088188/share/lua/5.1/?/init.lua;/Users/sas/.cache/nvim/packer_hererocks/2.1.1710088188/lib/luarocks/rocks-5.1/?.lua;/Users/sas/.cache/nvim/packer_hererocks/2.1.1710088188/lib/luarocks/rocks-5.1/?/init.lua"
-local install_cpath_pattern = "/Users/sas/.cache/nvim/packer_hererocks/2.1.1710088188/lib/lua/5.1/?.so"
+local package_path_str = "/Users/sas/.cache/nvim/packer_hererocks/2.1.1713773202/share/lua/5.1/?.lua;/Users/sas/.cache/nvim/packer_hererocks/2.1.1713773202/share/lua/5.1/?/init.lua;/Users/sas/.cache/nvim/packer_hererocks/2.1.1713773202/lib/luarocks/rocks-5.1/?.lua;/Users/sas/.cache/nvim/packer_hererocks/2.1.1713773202/lib/luarocks/rocks-5.1/?/init.lua"
+local install_cpath_pattern = "/Users/sas/.cache/nvim/packer_hererocks/2.1.1713773202/lib/lua/5.1/?.so"
 if not string.find(package.path, package_path_str, 1, true) then
   package.path = package.path .. ';' .. package_path_str
 end
@@ -84,10 +84,15 @@ _G.packer_plugins = {
     path = "/Users/sas/.local/share/nvim/site/pack/packer/start/alpha-nvim",
     url = "https://github.com/goolord/alpha-nvim"
   },
-  ["bufferline.nvim"] = {
+  ["base16-vim"] = {
     loaded = true,
-    path = "/Users/sas/.local/share/nvim/site/pack/packer/start/bufferline.nvim",
-    url = "https://github.com/akinsho/bufferline.nvim"
+    path = "/Users/sas/.local/share/nvim/site/pack/packer/start/base16-vim",
+    url = "https://github.com/chriskempson/base16-vim"
+  },
+  ["candle-grey"] = {
+    loaded = true,
+    path = "/Users/sas/.local/share/nvim/site/pack/packer/start/candle-grey",
+    url = "https://github.com/aditya-azad/candle-grey"
   },
   catppuccin = {
     loaded = true,
@@ -123,6 +128,16 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/sas/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
     url = "https://github.com/saadparwaiz1/cmp_luasnip"
+  },
+  ["copilot.vim"] = {
+    loaded = true,
+    path = "/Users/sas/.local/share/nvim/site/pack/packer/start/copilot.vim",
+    url = "https://github.com/github/copilot.vim"
+  },
+  ["fogbell.vim"] = {
+    loaded = true,
+    path = "/Users/sas/.local/share/nvim/site/pack/packer/start/fogbell.vim",
+    url = "https://github.com/jaredgorski/fogbell.vim"
   },
   ["friendly-snippets"] = {
     loaded = true,
@@ -170,6 +185,11 @@ _G.packer_plugins = {
     path = "/Users/sas/.local/share/nvim/site/pack/packer/start/lualine.nvim",
     url = "https://github.com/nvim-lualine/lualine.nvim"
   },
+  ["lush.nvim"] = {
+    loaded = true,
+    path = "/Users/sas/.local/share/nvim/site/pack/packer/start/lush.nvim",
+    url = "https://github.com/rktjmp/lush.nvim"
+  },
   ["mason-lspconfig.nvim"] = {
     loaded = true,
     path = "/Users/sas/.local/share/nvim/site/pack/packer/start/mason-lspconfig.nvim",
@@ -180,6 +200,11 @@ _G.packer_plugins = {
     path = "/Users/sas/.local/share/nvim/site/pack/packer/start/mason.nvim",
     url = "https://github.com/williamboman/mason.nvim"
   },
+  ["matrix-nvim"] = {
+    loaded = true,
+    path = "/Users/sas/.local/share/nvim/site/pack/packer/start/matrix-nvim",
+    url = "https://github.com/iruzo/matrix-nvim"
+  },
   neovim = {
     loaded = true,
     path = "/Users/sas/.local/share/nvim/site/pack/packer/start/neovim",
@@ -189,11 +214,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/sas/.local/share/nvim/site/pack/packer/start/night-owl.nvim",
     url = "https://github.com/oxfist/night-owl.nvim"
-  },
-  ["nord.nvim"] = {
-    loaded = true,
-    path = "/Users/sas/.local/share/nvim/site/pack/packer/start/nord.nvim",
-    url = "https://github.com/shaunsingh/nord.nvim"
   },
   ["nvim-cmp"] = {
     loaded = true,
@@ -260,6 +280,16 @@ _G.packer_plugins = {
     path = "/Users/sas/.local/share/nvim/site/pack/packer/start/undotree",
     url = "https://github.com/mbbill/undotree"
   },
+  vim = {
+    loaded = true,
+    path = "/Users/sas/.local/share/nvim/site/pack/packer/start/vim",
+    url = "https://github.com/nordtheme/vim"
+  },
+  ["vim-256noir"] = {
+    loaded = true,
+    path = "/Users/sas/.local/share/nvim/site/pack/packer/start/vim-256noir",
+    url = "https://github.com/andreasvc/vim-256noir"
+  },
   ["vim-dadbod"] = {
     loaded = true,
     path = "/Users/sas/.local/share/nvim/site/pack/packer/start/vim-dadbod",
@@ -294,6 +324,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/sas/.local/share/nvim/site/pack/packer/start/vim-tmux-navigator",
     url = "https://github.com/christoomey/vim-tmux-navigator"
+  },
+  ["zenbones.nvim"] = {
+    loaded = true,
+    path = "/Users/sas/.local/share/nvim/site/pack/packer/start/zenbones.nvim",
+    url = "https://github.com/mcchrish/zenbones.nvim"
   }
 }
 

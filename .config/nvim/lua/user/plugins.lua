@@ -73,12 +73,24 @@ return packer.startup(function(use)
   use { "ellisonleao/gruvbox.nvim" }
   use 'rose-pine/neovim'
   use 'navarasu/onedark.nvim'
-  use 'shaunsingh/nord.nvim'
-  use { 'akinsho/bufferline.nvim' }
-  use { 'nvim-lualine/lualine.nvim', }
+  use 'nordtheme/vim'
+  use 'nvim-lualine/lualine.nvim'
   use "folke/tokyonight.nvim"
   use 'fxn/vim-monochrome'
   use "oxfist/night-owl.nvim"
+  use 'iruzo/matrix-nvim'
+  use 'chriskempson/base16-vim'
+  use 'aditya-azad/candle-grey'
+  use 'jaredgorski/fogbell.vim'
+  use {
+    "mcchrish/zenbones.nvim",
+    -- Optionally install Lush. Allows for more configuration or extending the colorscheme
+    -- If you don't want to install lush, make sure to set g:zenbones_compat = 1
+    -- In Vim, compat mode is turned on as Lush only works in Neovim.
+    requires = "rktjmp/lush.nvim"
+  }
+  use 'andreasvc/vim-256noir'
+
   --Telescope
   use {
     'nvim-telescope/telescope.nvim',
@@ -128,6 +140,8 @@ return packer.startup(function(use)
     branch = "harpoon2",
   }
   use 'christoomey/vim-tmux-navigator'
+  --copilot
+  use "github/copilot.vim"
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

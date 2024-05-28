@@ -44,7 +44,7 @@ vim.opt.expandtab = true
 
 
 vim.opt.wrap = true
-vim.opt.textwidth = 120
+vim.opt.textwidth = 80
 vim.opt.linebreak = true
 vim.opt.breakindent = true
 vim.opt.swapfile = false
@@ -63,4 +63,4 @@ vim.opt.isfname:append("@-@")
 
 vim.opt.updatetime = 50
 
-vim.opt.colorcolumn = "120"
+vim.opt.colorcolumn = "80"

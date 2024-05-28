@@ -118,3 +118,11 @@ keymap('n', '<C-j>', ':TmuxNavigateDown<CR>', opts)
 keymap('n', '<C-k>', ':TmuxNavigateUp<CR>', opts)
 keymap('n', '<C-l>', ':TmuxNavigateRight<CR>', opts)
 keymap('n', '<c-\\>', ':TmuxNavigatePrevious<CR>',opts)
+
+--COPILOT
+keymap('i', '<C-r>', 'copilot#Accept("<CR>")', {
+  expr = true,
+  replace_keycodes = false,
+})
+
+vim.g.copilot_no_tab_map = true

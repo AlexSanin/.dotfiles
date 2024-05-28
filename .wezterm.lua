@@ -11,4 +11,7 @@ config.font = wezterm.font 'Fira Code'
 config.font_size = 16.0
 config.window_background_opacity = 0.95
 -- and finally, return the configuration to wezterm
+--config.color_scheme = 'Matrix (terminal.sexy)'
+--config.color_scheme = 'Tokyo Night Day'
+--config.color_scheme = 'iTerm2 Light Background'
 return config

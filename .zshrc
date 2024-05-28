@@ -7,6 +7,8 @@ fi
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
+#
+source $(brew --prefix nvm)/nvm.sh
 
 # Path to your oh-my-zsh installation.
 export zsh="/Users/sas/.oh-my-zsh"
@@ -96,7 +98,7 @@ plugins=(
 )
 source $zsh/oh-my-zsh.sh
 source /Users/sas/.bash_profile
-source $(brew --prefix nvm)/nvm.sh
+
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -111,6 +113,13 @@ source $(brew --prefix nvm)/nvm.sh
    export EDITOR='nvim'
  fi
 
+source <(fzf --zsh)
+
+HISTFILE=~/.zsh_history
+HISTSIZE=10000
+SAVEHIST=10000
+setopt appendhistory
+
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
@@ -118,11 +127,15 @@ source $(brew --prefix nvm)/nvm.sh
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 alias v="nvim"
 alias zs="nvim /Users/sas/.zshrc"
+alias wt="nvim /Users/sas/.wezterm.lua"
+alias dc="nvim /Users/sas/rms/front-end/docker-compose.yml"
+alias szs="source ~/.zshrc"
 alias chrome="open -a 'Google Chrome'"
 alias c='clear'
 
 #Database connection
-alias mysqll="mysql -u root -h 127.0.0.1 -P 3306 -proot"   
+alias dbl="mysql"   
+alias db="mysql -u root -h 127.0.0.1 -P 3306 -proot"   
 alias mysqle2e="mysql -u root -h 127.0.0.1 -P 3333 -proot"   
 
 #Docker
@@ -133,29 +146,30 @@ alias de='dexec'
 #GIT
 alias grb='git branch | grep -v "master" | xargs git branch -D'
 alias df='/usr/bin/git --git-dir=/Users/sas/.dotfiles/ --work-tree=/Users/sas'
+alias vf='v $(fzf)'
 
 export PATH="$PATH:$HOME/.rvm/bin"
 export PATH=$PATH:$HOME/bin
 export HISTTIMEFORMAT="%d/%m/%y %T "
 export PATH="/usr/local/bin:$PATH"
+export PATH="/Library/PostgreSQL/16/bin:$PATH"
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="/usr/local/sbin:$PATH"
 # Define function for starting a service
 dcup() {
-  docker-compose up -d "$@"
+  ($fe && docker-compose up -d "$@")
 }
 
 # Define function for stopping a service
 dcstop() {
-  docker-compose stop "$@"
+  ($fe && docker-compose stop "$@")
 }
 
 dlogs() {
-  docker-compose logs -f "$@"
+  ($fe && docker-compose logs -f "$@")
 }
 
 dexec() {
-  docker-compose exec -it "$@" sh
+  ($fe && docker-compose exec -it "$@" sh)
 }
-
