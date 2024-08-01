@@ -24,6 +24,9 @@ require('telescope').setup {
     buffer_previewer_maker = new_maker,
     hidden = true,
     find_command = { 'fd', '--type', 'f', '--no-ignore-vcs' },
+    file_ignore_patterns = {
+      'node_modules'
+    },
   },
   extensions = {
     fzf = {

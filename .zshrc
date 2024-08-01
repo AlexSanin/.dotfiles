@@ -19,7 +19,7 @@ export c="/Users/sas/.config/nvim"
 export bm="/Users/sas/bookmarks"
 export it="/Users/sas/bookmarks/i/it"
 export pj="/Users/sas/bookmarks/i/it/projects"
-export ob="/Users/sas/Google Drive/My Drive/My Stuff/obsidian/sas"
+export ob="/Users/sas/Google Drive/My Drive/01_My Stuff/obsidian/sas"
 
 export NVM_DIR=~/.nvm
 
@@ -133,6 +133,8 @@ alias szs="source ~/.zshrc"
 alias chrome="open -a 'Google Chrome'"
 alias c='clear'
 
+alias docker-compose="docker compose --compatibility $@"
+
 #Database connection
 alias dbl="mysql"   
 alias db="mysql -u root -h 127.0.0.1 -P 3306 -proot"   
@@ -160,6 +162,7 @@ alias wtl='git worktree list'
 alias grb='git branch | grep -v "master" | xargs git branch -D'
 alias df='/usr/bin/git --git-dir=/Users/sas/.dotfiles/ --work-tree=/Users/sas'
 alias vf='v $(fzf)'
+alias stk='stklos'
 
 
 export PATH="$PATH:$HOME/.rvm/bin"
@@ -167,24 +170,26 @@ export PATH=$PATH:$HOME/bin
 export HISTTIMEFORMAT="%d/%m/%y %T "
 export PATH="/usr/local/bin:$PATH"
 export PATH="/Library/PostgreSQL/16/bin:$PATH"
+#export PATH="/usr/local/mit-scheme/bin:$PATH"
+#export PATH="/usr/local/mit-scheme/"
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="/usr/local/sbin:$PATH"
 # Define function for starting a service
 dcup() {
-  ($fe && docker-compose up -d "$@")
+  ($fe && docker compose up -d "$@")
 }
 
 # Define function for stopping a service
 dcstop() {
-  ($fe && docker-compose stop "$@")
+  ($fe && docker compose stop "$@")
 }
 
 dlogs() {
-  ($fe && docker-compose logs -f "$@")
+  ($fe && docker compose logs -f "$@")
 }
 
 dexec() {
-  ($fe && docker-compose exec -it "$@" sh)
+  ($fe && docker compose exec -it "$@" sh)
 }
 

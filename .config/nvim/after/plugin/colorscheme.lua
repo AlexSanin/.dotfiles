@@ -12,6 +12,7 @@ require("night-owl").setup({
   undercurl = true,
   transparent_background = true,
 })
+
 vim.cmd.colorscheme("night-owl")
 --vim.cmd.colorscheme("catppuccin-latte")
 --vim.cmd.colorscheme("quiet")

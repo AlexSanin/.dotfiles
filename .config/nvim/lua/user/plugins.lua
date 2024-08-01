@@ -127,6 +127,8 @@ return packer.startup(function(use)
 
   use 'mfussenegger/nvim-dap'
 
+  use 'luochen1990/rainbow'
+
   --DB
   use 'tpope/vim-dadbod'
   use 'kristijanhusak/vim-dadbod-ui'
@@ -140,9 +142,18 @@ return packer.startup(function(use)
     branch = "harpoon2",
   }
   use 'christoomey/vim-tmux-navigator'
+  --typescript
+  use {
+    "folke/trouble.nvim",
+    requires = "kyazdani42/nvim-web-devicons",
+  }
+  --OBSIDIAN!!!
+  use({
+    "epwalsh/obsidian.nvim",
+    tag = "*", -- recommended, use latest release instead of latest commit
+  })
   --copilot
-  use "github/copilot.vim"
-
+  --use "github/copilot.vim"
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then

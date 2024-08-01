@@ -24,4 +24,11 @@ require('mason-lspconfig').setup({
 --show diagnostic
 vim.diagnostic.config({
   virtual_text = true,
+  signs = true,
+  float = {
+    border = "rounded",
+    source = "always",
+    header = "",
+    prefix = "",
+  },
 })

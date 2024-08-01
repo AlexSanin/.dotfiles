@@ -118,9 +118,24 @@ keymap('n', '<C-j>', ':TmuxNavigateDown<CR>', opts)
 keymap('n', '<C-k>', ':TmuxNavigateUp<CR>', opts)
 keymap('n', '<C-l>', ':TmuxNavigateRight<CR>', opts)
 keymap('n', '<c-\\>', ':TmuxNavigatePrevious<CR>',opts)
-
 --COPILOT
-keymap('i', '<C-r>', 'copilot#Accept("<CR>")', {
-  expr = true,
-  replace_keycodes = false,
-})
+--keymap('i', '<C-r>', 'copilot#Accept("<CR>")', {
+--  expr = true,
+--  replace_keycodes = false,
+--})
+keymap('n', '<leader>d', vim.diagnostic.open_float, { noremap=true, silent=true })
+keymap('n', '[d', vim.diagnostic.goto_prev, { noremap=true, silent=true })
+keymap('n', ']d', vim.diagnostic.goto_next, { noremap=true, silent=true })
+keymap('n', '<leader>q', vim.diagnostic.setloclist, { noremap=true, silent=true })
+
+keymap("n", "<leader>xx", "<cmd>Trouble diagnostics toggle<cr>", {silent = true, noremap = true})
+keymap("n", "<leader>xX", "<cmd>Trouble diagnostics toggle filter.buf=0<cr>", {silent = true, noremap = true})
+keymap("n", "<leader>cs", "<cmd>Trouble symbols toggle focus=false<cr>", {silent = true, noremap = true})
+keymap("n", "<leader>cl", "<cmd>Trouble lsp toggle focus=false win.position=right<cr>", {silent = true, noremap = true})
+keymap("n", "<leader>xL", "<cmd>Trouble loclist toggle<cr>", {silent = true, noremap = true})
+
+
+--OBSIDIAN
+
+keymap("n", "<leader>ot", "<cmd>:ObsidianNewFromTemplate<cr>",opts)
+keymap("n", "<leader>oi", "<cmd>:ObsidianTemplate<cr>",opts)

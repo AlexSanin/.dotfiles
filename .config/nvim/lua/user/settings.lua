@@ -1,4 +1,4 @@
-vim.g.loaded_netrw = 1
+vim.g.loaded_netrw = 2
 vim.g.loaded_netrwPlugin = 1
 vim.opt.clipboard = "unnamedplus"               -- allows neovim to access the system clipboard
 vim.opt.cmdheight = 1                           -- more space in the neovim command line for displaying messages
@@ -41,9 +41,9 @@ vim.opt.tabstop = 2
 vim.opt.softtabstop = 2
 vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
+vim.g.markdown_recommended_style = 0
 
-
-vim.opt.wrap = true
+vim.opt.wrap = false
 vim.opt.textwidth = 80
 vim.opt.linebreak = true
 vim.opt.breakindent = true
@@ -61,6 +61,16 @@ vim.opt.scrolloff = 8
 vim.opt.signcolumn = "yes"
 vim.opt.isfname:append("@-@")
 
+--watch on files changes
+vim.o.autoread = true
+vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "CursorHoldI", "FocusGained" }, {
+  command = "if mode() != 'c' | checktime | endif",
+  pattern = { "*" },
+})
 vim.opt.updatetime = 50
+--end of watch on files changes
 
-vim.opt.colorcolumn = "80"
+--vim.opt.colorcolumn = "80"
+
+--rainbow brackets
+vim.g.rainbow_active = 1
