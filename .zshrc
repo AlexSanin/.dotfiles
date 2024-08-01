@@ -8,7 +8,7 @@ fi
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 #
-source $(brew --prefix nvm)/nvm.sh
+#source $(brew --prefix nvm)/nvm.sh
 
 # Path to your oh-my-zsh installation.
 export zsh="/Users/sas/.oh-my-zsh"
@@ -21,7 +21,9 @@ export it="/Users/sas/bookmarks/i/it"
 export pj="/Users/sas/bookmarks/i/it/projects"
 export ob="/Users/sas/Google Drive/My Drive/01_My Stuff/obsidian/sas"
 
-export NVM_DIR=~/.nvm
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -97,7 +99,7 @@ plugins=(
   zsh-autosuggestions
 )
 source $zsh/oh-my-zsh.sh
-source /Users/sas/.bash_profile
+#source /Users/sas/.bash_profile
 
 # User configuration
 
@@ -160,7 +162,7 @@ alias wtadd='git-wtadd'
 alias wtr='git-wtr'
 alias wtl='git worktree list'
 alias grb='git branch | grep -v "master" | xargs git branch -D'
-alias df='/usr/bin/git --git-dir=/Users/sas/.dotfiles/ --work-tree=/Users/sas'
+alias df='/usr/bin/git --git-dir=/Users/sas/bookmarks/config/.dotfiles/ --work-tree=/Users/sas'
 alias vf='v $(fzf)'
 alias stk='stklos'
 
