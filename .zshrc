@@ -10,20 +10,6 @@ fi
 #
 #source $(brew --prefix nvm)/nvm.sh
 
-# Path to your oh-my-zsh installation.
-export zsh="/Users/sas/.oh-my-zsh"
-export w="/Users/sas/rms"
-export fe="/Users/sas/rms/front-end"
-export ad="/Users/sas/rms/office365-addins/office365-word-addin/"
-export c="/Users/sas/.config/nvim"
-export bm="/Users/sas/bookmarks"
-export it="/Users/sas/bookmarks/i/it"
-export pj="/Users/sas/bookmarks/i/it/projects"
-export ob="/Users/sas/Google Drive/My Drive/01_My Stuff/obsidian/sas"
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -98,6 +84,17 @@ plugins=(
   zsh-syntax-highlighting
   zsh-autosuggestions
 )
+
+export zsh="/Users/sas/.oh-my-zsh"
+export w="/Users/sas/rms"
+export fe="/Users/sas/rms/front-end"
+export ad="/Users/sas/rms/office365-addins/office365-word-addin/"
+export c="/Users/sas/.config/nvim"
+export bm="/Users/sas/bookmarks"
+export it="/Users/sas/bookmarks/i/it"
+export pj="/Users/sas/bookmarks/i/it/projects"
+export ob="/Users/sas/Google Drive/My Drive/01_My Stuff/obsidian/sas"
+
 source $zsh/oh-my-zsh.sh
 #source /Users/sas/.bash_profile
 
@@ -107,6 +104,8 @@ source $zsh/oh-my-zsh.sh
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
+
+
 
 #Preferred editor for local and remote sessions
  if [[ -n $SSH_CONNECTION ]]; then
@@ -127,6 +126,14 @@ setopt appendhistory
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+alias wtadd='git-wtadd'
+alias wtr='git-wtr'
+alias wtl='git worktree list'
+alias grb='git branch | grep -v "master" | xargs git branch -D'
+alias df='/usr/bin/git --git-dir=/Users/sas/bookmarks/config/.dotfiles/ --work-tree=/Users/sas'
+alias vf='v $(fzf)'
+alias stk='stklos'
 alias v="nvim"
 alias zs="nvim /Users/sas/.zshrc"
 alias wt="nvim /Users/sas/.wezterm.lua"
@@ -138,15 +145,20 @@ alias c='clear'
 alias docker-compose="docker compose --compatibility $@"
 
 #Database connection
-alias dbl="mysql"   
+alias dbl="mysql -u root -proot"   
 alias db="mysql -u root -h 127.0.0.1 -P 3306 -proot"   
-alias mysqle2e="mysql -u root -h 127.0.0.1 -P 3333 -proot"   
+alias restart-fe="~/rms/rms-release/bin/start.sh"
+
+alias mysqle2e="mysql -u root -h 127.0.0.1 -P 3333 -p"   
+
+#alias mysql=/usr/local/mysql/bin/mysql
 
 #Docker
-alias du='dcup'
-alias ds='dcstop'
-alias dl='dlogs'
-alias de='dexec'
+alias dcu='dcup'
+alias dcr='dcrestart'
+alias dcs='dcstop'
+alias dcl='dlogs'
+alias dce='dexec'
 #GIT
 # Git worktree add 
 function git-wtadd() {
@@ -158,28 +170,19 @@ function git-wtr() {
   git worktree remove "$1"
 }
 
-alias wtadd='git-wtadd'
-alias wtr='git-wtr'
-alias wtl='git worktree list'
-alias grb='git branch | grep -v "master" | xargs git branch -D'
-alias df='/usr/bin/git --git-dir=/Users/sas/bookmarks/config/.dotfiles/ --work-tree=/Users/sas'
-alias vf='v $(fzf)'
-alias stk='stklos'
-
-
-export PATH="$PATH:$HOME/.rvm/bin"
+export PATH="/opt/homebrew/opt/gawk/libexec/gnubin:$PATH"
 export PATH=$PATH:$HOME/bin
 export HISTTIMEFORMAT="%d/%m/%y %T "
 export PATH="/usr/local/bin:$PATH"
-export PATH="/Library/PostgreSQL/16/bin:$PATH"
-#export PATH="/usr/local/mit-scheme/bin:$PATH"
-#export PATH="/usr/local/mit-scheme/"
 
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="/usr/local/sbin:$PATH"
 # Define function for starting a service
 dcup() {
   ($fe && docker compose up -d "$@")
+}
+
+# Define function for starting a service
+dcrestart() {
+  ($fe && docker compose stop "$@" && docker compose up -d "$@")
 }
 
 # Define function for stopping a service
@@ -195,3 +198,10 @@ dexec() {
   ($fe && docker compose exec -it "$@" sh)
 }
 
+# Path to your oh-my-zsh installation.
+export PATH="$PATH:$HOME/.rvm/bin"
+export PATH="/usr/local/sbin:$PATH"
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+export PATH=$PATH:/usr/local/mysql/bin

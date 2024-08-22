@@ -112,6 +112,8 @@ keymap('n', 'gx',
   ':lua (function() local url = vim.fn.expand("<cfile>"); local command = ""; if vim.fn.has("mac") == 1 then command = "open"; elseif vim.fn.has("unix") == 1 then command = "xdg-open"; elseif vim.fn.has("win32") == 1 or vim.fn.has("win64") == 1 then command = "start"; end; if command ~= "" then vim.cmd("! " .. command .. " " .. url); else print("Unsupported OS for URL opening"); end end)()<CR>',
 opts)
 
+keymap('n', '<leader>bd', "<cmd>:w <bar> %bd <bar> e# <bar> bd# <CR>", opts)
+
 --vim-tmux-navigator
 keymap('n', '<C-h>', ':TmuxNavigateLeft<CR>', opts)
 keymap('n', '<C-j>', ':TmuxNavigateDown<CR>', opts)
