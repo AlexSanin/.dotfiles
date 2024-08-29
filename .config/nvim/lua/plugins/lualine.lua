@@ -1,0 +1,70 @@
+return {
+  'nvim-lualine/lualine.nvim',
+  config = function()
+    local status_ok, lualine = pcall(require, "lualine")
+    if not status_ok then
+      return
+    end
+
+    -- Function to hide components if window width is less than 80
+    local hide_in_width = function()
+      return vim.fn.winwidth(0) > 80
+    end
+
+    -- Diagnostics configuration
+    local diagnostics = {
+      "diagnostics",
+      sources = { "nvim_diagnostic" },
+      sections = { "error", "warn" },
+      symbols = { error = " ", warn = " " },
+      colored = false,
+      always_visible = true,
+    }
+
+    -- Diff configuration
+    local diff = {
+      "diff",
+      colored = false,
+      symbols = { added = "", modified = "", removed = "" },
+      cond = hide_in_width,
+    }
+
+    -- Filetype configuration
+    local filetype = {
+      "filetype",
+      icons_enabled = false,
+    }
+
+    -- Location configuration
+    local location = {
+      "location",
+      padding = 0,
+    }
+
+    -- Spaces configuration
+    local spaces = function()
+      return "spaces: " .. vim.api.nvim_buf_get_option(0, "shiftwidth")
+    end
+
+    -- lualine setup
+    lualine.setup {
+      options = {
+        globalstatus = true,
+        icons_enabled = true,
+        theme = "auto",
+        component_separators = { left = "", right = "" },
+        section_separators = { left = "", right = "" },
+        disabled_filetypes = { "alpha", "dashboard" },
+        always_divide_middle = true,
+      },
+      sections = {
+        lualine_a = { "mode" },
+        lualine_b = { "branch" },
+        lualine_c = { diagnostics },
+        lualine_x = { diff, spaces, "encoding", filetype, "filename" },
+        lualine_y = { location },
+        lualine_z = { "progress" },
+      },
+    }
+  end
+}
