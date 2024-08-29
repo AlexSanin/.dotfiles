@@ -11,6 +11,7 @@ end)
 require('mason').setup({})
 require('mason-lspconfig').setup({
   ensure_installed = {
+    "tailwindcss",
     "lua_ls",
     "html",
     "cssls",
