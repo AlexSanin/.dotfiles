@@ -1,2 +1,2 @@
-require "user"
---require("config.lazy")
+--require "user"
+require("config.lazy")
