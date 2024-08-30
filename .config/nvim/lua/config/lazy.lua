@@ -27,8 +27,8 @@ require("lazy").setup({
     -- import your plugins
     { import = "plugins" },
     { "nvim-tree/nvim-web-devicons" },
-    { "nvim-lua/plenary.nvim"},
-    { "kdheepak/lazygit.nvim" }
+    { "nvim-lua/plenary.nvim" },
+    { "kdheepak/lazygit.nvim" },
   },
   checker = { enabled = true },
 })
