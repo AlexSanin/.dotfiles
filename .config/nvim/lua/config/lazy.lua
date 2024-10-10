@@ -30,7 +30,7 @@ require("lazy").setup({
     { "nvim-lua/plenary.nvim" },
     { "kdheepak/lazygit.nvim" },
   },
-  checker = { enabled = true },
+  checker = { enabled = false },
 })
 
 require("user")

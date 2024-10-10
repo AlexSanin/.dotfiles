@@ -32,6 +32,9 @@ keymap("n", "<M-l>", ":vertical resize +2<CR>", opts)
 -- Navigate buffers
 --keymap("n", "<TAB>", ":bnext<CR>", opts)
 --keymap("n", "<S-TAB>", ":bprevious<CR>", opts)
+-- Close buffer in split and open next
+--
+keymap("n", "<leader>wc", ":bnext | bd #<CR>", opts)
 
 -- Better paste
 keymap("v", "p", '"_dP', opts)
