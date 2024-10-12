@@ -29,6 +29,7 @@ require("lazy").setup({
     { "nvim-tree/nvim-web-devicons" },
     { "nvim-lua/plenary.nvim" },
     { "kdheepak/lazygit.nvim" },
+    { "folke/ts-comments.nvim",     opts = {}, event = "VeryLazy", enabled = vim.fn.has("nvim-0.10.0") == 1, }
   },
   checker = { enabled = false },
 })
