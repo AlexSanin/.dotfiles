@@ -137,7 +137,6 @@ alias stk='stklos'
 alias v="nvim"
 alias zs="nvim /Users/sas/.zshrc"
 alias wt="nvim /Users/sas/.wezterm.lua"
-alias dc="nvim /Users/sas/rms/front-end/docker-compose.yml"
 alias szs="source ~/.zshrc"
 alias chrome="open -a 'Google Chrome'"
 alias c='clear'
@@ -175,29 +174,6 @@ export PATH=$PATH:$HOME/bin
 export HISTTIMEFORMAT="%d/%m/%y %T "
 export PATH="/usr/local/bin:$PATH"
 
-# Define function for starting a service
-dcup() {
-  ($fe && docker compose up -d "$@")
-}
-
-# Define function for starting a service
-dcrestart() {
-  ($fe && docker compose stop "$@" && docker compose up -d "$@")
-}
-
-# Define function for stopping a service
-dcstop() {
-  ($fe && docker compose stop "$@")
-}
-
-dlogs() {
-  ($fe && docker compose logs -f "$@")
-}
-
-dexec() {
-  ($fe && docker compose exec -it "$@" sh)
-}
-
 # Path to your oh-my-zsh installation.
 export PATH="$PATH:$HOME/.rvm/bin"
 export PATH="/usr/local/sbin:$PATH"
@@ -206,7 +182,66 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 export PATH=$PATH:/usr/local/mysql/bin
 
-
 export CYPRESS_RMS_HOME_URL=http://localhost:8081
 export CYPRESS_RMS_API_URL=http://localhost:8082
 export CYPRESS_RMS_SSR_URL=http://localhost:3005
+# Add this to your .zshrc or relevant shell config file
+
+# Define project paths
+declare -A DOCKER_PROJECTS=(
+  ["fe"]="/Users/sas/rms/front-end"
+  ["chat"]="/Users/sas/bookmarks/i/it/projects/chat/front-end/react-app"
+  # Add more projects as needed
+)
+
+function dc() {
+  local project=$1
+  shift  # Remove first argument (project name)
+  
+  if [[ -z "$project" ]]; then
+    echo "Usage: dc <project> <docker-compose-command>"
+    echo "Available projects:"
+    for key in "${(k)DOCKER_PROJECTS[@]}"; do
+      echo "  $key -> ${DOCKER_PROJECTS[$key]}"
+    done
+    return 1
+  fi
+  
+  local project_path="${DOCKER_PROJECTS[$project]}"
+  
+  if [[ -z "$project_path" ]]; then
+    echo "Error: Project '$project' not found"
+    return 1
+  fi
+  
+  if [[ ! -d "$project_path" ]]; then
+    echo "Error: Directory '$project_path' does not exist"
+    return 1
+  fi
+  
+  (cd "$project_path" && docker compose "$@")
+}
+
+function dcup() {
+  dc "$1" up -d "${@:2}"
+}
+
+function dcdn() {
+  dc "$1" down "${@:2}"
+}
+
+function dclogs() {
+  dc "$1" logs -f "${@:2}"
+}
+
+function dcps() {
+  dc "$1" ps "${@:2}"
+}
+
+function dcr() {
+  dc "$1" restart "${@:2}"
+}
+
+function dcx() {
+  dc "$1" exec "${@:2}"
+}

@@ -74,3 +74,11 @@ vim.opt.updatetime = 50
 
 --rainbow brackets
 vim.g.rainbow_active = 1
+
+--transparent bg
+--vim.cmd [[
+--  highlight Normal guibg=none
+--  highlight NonText guibg=none
+--  highlight Normal ctermbg=none
+--  highlight NonText ctermbg=none
+--]]
