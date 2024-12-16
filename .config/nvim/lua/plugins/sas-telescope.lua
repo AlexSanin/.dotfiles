@@ -57,7 +57,7 @@ return {
 
     keymap("n", "<leader>ff", ":Telescope find_files<CR>", opts)
     keymap("n", "<leader>fg", ":Telescope live_grep<CR>", opts)
-    keymap("n", "<leader>fs", ":Telescope grep_string<CR>", opts)
+    keymap("n", "<leader>fs", ":Telescope grep_string word_match=-w<CR>", opts)
     keymap("n", "<leader>gr", ":Telescope lsp_references<CR>", opts)
     keymap("n", "<leader>gd", ":Telescope lsp_definitions<CR>", opts)
     keymap('n', '<C-p>', ":Telescope git_files<CR>", opts)

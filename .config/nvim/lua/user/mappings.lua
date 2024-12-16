@@ -17,12 +17,6 @@ vim.g.mapleader = " "
 keymap("n", "<leader>rn", vim.lsp.buf.rename, opts)
 keymap("n", "<leader>ca", vim.lsp.buf.code_action, opts)
 
--- Better window navigation
-keymap("n", "<C-h>", ":wincmd h", opts)
-keymap("n", "<C-j>", ":wincmd j", opts)
-keymap("n", "<C-k>", ":wincmd k", opts)
-keymap("n", "<C-l>", ":wincmd l", opts)
-
 -- Resize with arrows
 keymap("n", "<M-j>", ":resize -2<CR>", opts)
 keymap("n", "<M-k>", ":resize +2<CR>", opts)
@@ -86,7 +80,7 @@ keymap("n", "<c-s>", ":w<cr>")
 --replace all row with yanked data
 keymap("x", "<leader>p", [["_dP]])
 
---copy to the system clipboard 
+--copy to the system clipboard
 keymap({ "n", "v" }, "<leader>y", [["+y]])
 keymap("n", "<leader>Y", [["+Y]])
 
@@ -99,10 +93,6 @@ keymap("n", "Q", "<nop>")
 --keymap("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
 keymap("n", "<leader>f", vim.lsp.buf.format)
 
---got to the previus lsp suggestions
-keymap("n", "<C-k>", "<cmd>cnext<CR>zz")
---got to the next lsp suggestions
-keymap("n", "<C-j>", "<cmd>cprev<CR>zz")
 
 --replace word under cursor
 keymap("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
@@ -113,7 +103,7 @@ keymap("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 -- Mapping gx to open URL under cursor
 keymap('n', 'gx',
   ':lua (function() local url = vim.fn.expand("<cfile>"); local command = ""; if vim.fn.has("mac") == 1 then command = "open"; elseif vim.fn.has("unix") == 1 then command = "xdg-open"; elseif vim.fn.has("win32") == 1 or vim.fn.has("win64") == 1 then command = "start"; end; if command ~= "" then vim.cmd("! " .. command .. " " .. url); else print("Unsupported OS for URL opening"); end end)()<CR>',
-opts)
+  opts)
 
 keymap('n', '<leader>bd', "<cmd>:w <bar> %bd <bar> e# <bar> bd# <CR>", opts)
 
@@ -122,25 +112,33 @@ keymap('n', '<C-h>', ':TmuxNavigateLeft<CR>', opts)
 keymap('n', '<C-j>', ':TmuxNavigateDown<CR>', opts)
 keymap('n', '<C-k>', ':TmuxNavigateUp<CR>', opts)
 keymap('n', '<C-l>', ':TmuxNavigateRight<CR>', opts)
-keymap('n', '<c-\\>', ':TmuxNavigatePrevious<CR>',opts)
+keymap('n', '<c-\\>', ':TmuxNavigatePrevious<CR>', opts)
 --COPILOT
 --keymap('i', '<C-r>', 'copilot#Accept("<CR>")', {
 --  expr = true,
 --  replace_keycodes = false,
 --})
-keymap('n', '<leader>d', vim.diagnostic.open_float, { noremap=true, silent=true })
-keymap('n', '[d', vim.diagnostic.goto_prev, { noremap=true, silent=true })
-keymap('n', ']d', vim.diagnostic.goto_next, { noremap=true, silent=true })
-keymap('n', '<leader>q', vim.diagnostic.setloclist, { noremap=true, silent=true })
+keymap('n', '<leader>d', vim.diagnostic.open_float, { noremap = true, silent = true })
+keymap('n', '[d', vim.diagnostic.goto_prev, { noremap = true, silent = true })
+keymap('n', ']d', vim.diagnostic.goto_next, { noremap = true, silent = true })
+keymap('n', '<leader>q', vim.diagnostic.setloclist, { noremap = true, silent = true })
 
-keymap("n", "<leader>xx", "<cmd>Trouble diagnostics toggle<cr>", {silent = true, noremap = true})
-keymap("n", "<leader>xX", "<cmd>Trouble diagnostics toggle filter.buf=0<cr>", {silent = true, noremap = true})
-keymap("n", "<leader>cs", "<cmd>Trouble symbols toggle focus=false<cr>", {silent = true, noremap = true})
-keymap("n", "<leader>cl", "<cmd>Trouble lsp toggle focus=false win.position=right<cr>", {silent = true, noremap = true})
-keymap("n", "<leader>xL", "<cmd>Trouble loclist toggle<cr>", {silent = true, noremap = true})
+keymap("n", "<leader>xx", "<cmd>Trouble diagnostics toggle<cr>", { silent = true, noremap = true })
+keymap("n", "<leader>xX", "<cmd>Trouble diagnostics toggle filter.buf=0<cr>", { silent = true, noremap = true })
+keymap("n", "<leader>cs", "<cmd>Trouble symbols toggle focus=false<cr>", { silent = true, noremap = true })
+keymap("n", "<leader>cl", "<cmd>Trouble lsp toggle focus=false win.position=right<cr>", { silent = true, noremap = true })
+keymap("n", "<leader>xL", "<cmd>Trouble loclist toggle<cr>", { silent = true, noremap = true })
+
+keymap('n', '<leader>m', ':marks<CR>', opts)
 
 
 --OBSIDIAN
 
-keymap("n", "<leader>ot", "<cmd>:ObsidianNewFromTemplate<cr>",opts)
-keymap("n", "<leader>oi", "<cmd>:ObsidianTemplate<cr>",opts)
+keymap("n", "<leader>ot", "<cmd>:ObsidianNewFromTemplate<cr>", opts)
+keymap("n", "<leader>oi", "<cmd>:ObsidianTemplate<cr>", opts)
+
+--Quickfix
+--got to the previus lsp suggestions
+keymap("n", "<leader>k", "<cmd>cnext<CR>zz")
+--got to the next lsp suggestions
+keymap("n", "<leader>j", "<cmd>cprev<CR>zz")

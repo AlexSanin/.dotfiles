@@ -28,10 +28,12 @@ return {
         "eslint",
         "rust_analyzer",
         "sqlls",
+        "ruby_lsp",
+        "rubocop"
       },
-      --handlers = {
-      --  lsp_zero.default_setup,
-      --},
+      handlers = {
+        lsp_zero.default_setup,
+      },
     })
     -- Automatically install and set up ensure_installed servers
     require('mason-lspconfig').setup_handlers({
