@@ -6,7 +6,7 @@ local wezterm = require 'wezterm'
 local config = wezterm.config_builder()
 
 -- This is where you actually apply your config choices
-config.font = wezterm.font 'Fira Code'
+config.font = wezterm.font 'FiraCode Nerd Font'
 
 config.font_size = 16.0
 config.window_background_opacity = 0.90
