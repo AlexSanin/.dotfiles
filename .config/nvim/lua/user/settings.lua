@@ -20,7 +20,7 @@ vim.opt.number = true                           -- set numbered lines
 vim.opt.laststatus = 3
 vim.opt.showcmd = false
 vim.opt.ruler = true
-vim.opt.numberwidth = 4       -- set number column width to 2 {default 4}
+vim.opt.numberwidth = 2       -- set number column width to 2 {default 4}
 vim.opt.sidescrolloff = 8
 vim.opt.guifont = "Fira Code" -- the font used in graphical neovim applications
 vim.opt.fillchars.eob = " "
@@ -44,7 +44,7 @@ vim.opt.expandtab = true
 vim.g.markdown_recommended_style = 0
 
 vim.opt.wrap = false
-vim.opt.textwidth = 80
+vim.opt.textwidth = 120
 vim.opt.linebreak = true
 vim.opt.breakindent = true
 vim.opt.swapfile = false
@@ -63,8 +63,16 @@ vim.opt.isfname:append("@-@")
 
 --watch on files changes
 vim.o.autoread = true
+--vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "CursorHoldI", "FocusGained" }, {
+--  command = "if mode() != 'c' | checktime | endif",
+--  pattern = { "*" },
+--})
 vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "CursorHoldI", "FocusGained" }, {
-  command = "if mode() != 'c' | checktime | endif",
+  callback = function()
+    if vim.fn.getcmdwintype() == '' then
+      vim.cmd('checktime')
+    end
+  end,
   pattern = { "*" },
 })
 vim.opt.updatetime = 50
@@ -74,3 +82,11 @@ vim.opt.updatetime = 50
 
 --rainbow brackets
 vim.g.rainbow_active = 1
+
+--transparent bg
+--vim.cmd [[
+--  highlight Normal guibg=none
+--  highlight NonText guibg=none
+--  highlight Normal ctermbg=none
+--  highlight NonText ctermbg=none
+--]]
