@@ -17,10 +17,10 @@ export c="/Users/sas/.config/nvim"
 export bm="/Users/sas/bookmarks"
 export it="/Users/sas/bookmarks/i/it"
 export pj="/Users/sas/bookmarks/i/it/projects"
+export pjs="/Users/sas/bookmarks/i/it/projects/sandboxes"
 export pjc="/Users/sas/bookmarks/i/it/projects/chat"
-export cou="/Users/sas/bookmarks/i/it/courses/react-typescript-tutorial"
+export cou="/Users/sas/bookmarks/i/it/courses"
 export ob="/Users/sas/Google Drive/My Drive/01_My Stuff/obsidian/sas"
-
 
 source $zsh/oh-my-zsh.sh
 
@@ -41,6 +41,8 @@ setopt appendhistory
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
+alias fzf='fzf | xargs nvim'
+alias py='python3'
 alias wtadd='git-wtadd'
 alias wtr='git-wtr'
 alias wtl='git worktree list'
@@ -104,7 +106,6 @@ export PATH=$PATH:/usr/local/mysql/bin
 export CYPRESS_RMS_HOME_URL=http://localhost:8081
 export CYPRESS_RMS_API_URL=http://localhost:8082
 export CYPRESS_RMS_SSR_URL=http://localhost:3005
-# Add this to your .zshrc or relevant shell config file
 
 # Define project paths
 declare -A DOCKER_PROJECTS=(
@@ -181,6 +182,15 @@ function dcexec() {
   dc "$1" exec "${@:2}"
 }
 
+function rms-start() {
+    docker compose stop rms-search nginx
+    sleep 20
+    docker compose start rms-search
+    sleep 5
+    docker compose start nginx
+}
+
+export ANTHROPIC_API_KEY=$(security find-generic-password -a "$USER" -s "ANTHROPIC_API_KEY" -w)
 
 #aws profile
 function aws-dev() {

@@ -29,7 +29,10 @@ return {
         "rust_analyzer",
         "sqlls",
         "ruby_lsp",
-        "rubocop"
+        "rubocop",
+        "pyright",
+        "ruff",
+        "yamlls",
       },
       handlers = {
         lsp_zero.default_setup,
@@ -39,18 +42,52 @@ return {
     require('mason-lspconfig').setup_handlers({
       -- Default handler for all installed servers
       function(server_name)
-        -- Handle tsserver deprecation and rename to ts_ls
-        if server_name == "tsserver" then
-          server_name = "ts_ls"
-        end
-
         -- Set up capabilities for autocompletion (nvim-cmp integration)
         local capabilities = require('cmp_nvim_lsp').default_capabilities()
+        local settings = {}
+        if server_name == "yamlls" then
+          settings = {
+            yaml = {
+              schemaStore = {
+                enable = true,
+                url = "https://www.schemastore.org/api/json/catalog.json",
+              },
+              schemas = {
+                kubernetes = "*.yaml",
+                ["https://raw.githubusercontent.com/OAI/OpenAPI-Specification/main/schemas/v3.0/schema.json"] =
+                "/*swagger.yaml",
+                ["https://raw.githubusercontent.com/OAI/OpenAPI-Specification/main/schemas/v3.1/schema.json"] =
+                "/*swagger.yaml",
+                ["https://json.schemastore.org/swagger-2.0.json"] = "/*swagger.yaml",
+                ["https://json.schemastore.org/github-workflow"] = ".github/workflows/*",
+                ["https://json.schemastore.org/github-action"] = ".github/action.{yml,yaml}",
+                ["https://json.schemastore.org/ansible-stable-2.9"] = "roles/tasks/*.{yml,yaml}",
+                ["https://json.schemastore.org/prettierrc"] = ".prettierrc.{yml,yaml}",
+                ["https://json.schemastore.org/kustomization"] = "kustomization.{yml,yaml}",
+                ["https://json.schemastore.org/ansible-playbook"] = "*play*.{yml,yaml}",
+                ["https://json.schemastore.org/chart"] = "Chart.{yml,yaml}",
+                ["https://json.schemastore.org/dependabot-v2"] = ".github/dependabot.{yml,yaml}",
+                ["https://json.schemastore.org/gitlab-ci"] = "*gitlab-ci*.{yml,yaml}",
+                ["https://raw.githubusercontent.com/compose-spec/compose-spec/master/schema/compose-spec.json"] =
+                "*docker-compose*.{yml,yaml}",
+                ["https://raw.githubusercontent.com/argoproj/argo-workflows/master/api/jsonschema/schema.json"] =
+                "*flow*.{yml,yaml}",
+              },
+              format = {
+                enable = true,
+              },
+              validate = true,
+              completion = true,
+              hover = true,
+            },
+          }
+        end
 
         -- Use the lsp-zero default setup if no other customization is needed
         require('lspconfig')[server_name].setup({
           on_attach = lsp_zero.on_attach,
           capabilities = capabilities, -- Autocompletion capabilities
+          settings = settings,
         })
       end,
     })
