@@ -31,8 +31,6 @@ source $zsh/oh-my-zsh.sh
    export EDITOR='nvim'
  fi
 
-source <(fzf --zsh)
-
 HISTFILE=~/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
@@ -71,6 +69,7 @@ alias restart-fe="~/rms/rms-release/bin/start.sh"
 alias dbe2e="mysql -u root -h 127.0.0.1 -P 3336 -proot"   
 
 #Docker
+alias lzd='lazydocker'
 alias dcu='dcup'
 alias dcr='dcrestart'
 alias dcs='dcstop'
@@ -94,10 +93,11 @@ export PATH="/opt/homebrew/opt/gawk/libexec/gnubin:$PATH"
 export PATH=$PATH:$HOME/bin
 export HISTTIMEFORMAT="%d/%m/%y %T "
 export PATH="/usr/local/bin:$PATH"
-
+#
 # Path to your oh-my-zsh installation.
 export PATH="$PATH:$HOME/.rvm/bin"
 export PATH="/usr/local/sbin:$PATH"
+export PATH="$HOME/.local/scripts:$PATH"
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
@@ -199,3 +199,4 @@ function aws-dev() {
     export AWS_SECRET_ACCESS_KEY=$(aws configure get aws_secret_access_key --profile dev)
     export AWS_DEFAULT_REGION=$(aws configure get region --profile dev)
 }
+bindkey -s ^f "tmux-sessionizer\n"

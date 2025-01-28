@@ -13,6 +13,9 @@ return {
     }) vim.cmd.colorscheme("night-owl")
   end,
 }
+
+-- lua/plugins/rose-pine.lua
+
 --return {
 --  "ellisonleao/gruvbox.nvim",
 --  -- Default options:
