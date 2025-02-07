@@ -23,6 +23,7 @@ export cou="/Users/sas/bookmarks/i/it/courses"
 export ob="/Users/sas/Google Drive/My Drive/01_My Stuff/obsidian/sas"
 
 source $zsh/oh-my-zsh.sh
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 #Preferred editor for local and remote sessions
  if [[ -n $SSH_CONNECTION ]]; then
@@ -64,7 +65,7 @@ alias docker-compose="docker compose --compatibility $@"
 #Database connection
 alias dbl="mysql -u root -proot"   
 alias db="mysql -u root -h 127.0.0.1 -P 3306 -proot"   
-alias restart-fe="~/rms/rms-release/bin/start.sh"
+alias restart-fe="restart-fe.sh"
 
 alias dbe2e="mysql -u root -h 127.0.0.1 -P 3336 -proot"   
 
