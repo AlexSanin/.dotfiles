@@ -9,18 +9,17 @@ plugins=(
   zsh-autosuggestions
 )
 
-export zsh="/Users/sas/.oh-my-zsh"
-export w="/Users/sas/rms"
-export fe="/Users/sas/rms/front-end"
-export ad="/Users/sas/rms/office365-addins/office365-word-addin/"
-export c="/Users/sas/.config/nvim"
-export bm="/Users/sas/bookmarks"
-export it="/Users/sas/bookmarks/i/it"
-export pj="/Users/sas/bookmarks/i/it/projects"
-export pjs="/Users/sas/bookmarks/i/it/projects/sandboxes"
-export pjc="/Users/sas/bookmarks/i/it/projects/chat"
-export cou="/Users/sas/bookmarks/i/it/courses"
-export ob="/Users/sas/Google Drive/My Drive/01_My Stuff/obsidian/sas"
+export zsh="$HOME/.oh-my-zsh"
+export w="$HOME/rms"
+export fe="$HOME/rms/front-end"
+export ad="$HOME/rms/office365-addins/office365-word-addin/"
+export bm="$HOME/bookmarks"
+export it="$HOME/bookmarks/i/it"
+export pj="$HOME/bookmarks/i/it/projects"
+export pjs="$HOME/bookmarks/i/it/projects/sandboxes"
+export pjc="$HOME/bookmarks/i/it/projects/chat"
+export cou="$HOME/bookmarks/i/it/courses"
+export ob="$HOME/Google Drive/My Drive/01_My Stuff/obsidian/sas"
 
 source $zsh/oh-my-zsh.sh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -40,18 +39,20 @@ setopt appendhistory
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
+alias nc="nvim $HOME/.config/nvim"
+alias ae="nvim $HOME/.config/aerospace/aerospace.toml"
 alias fzf='fzf | xargs nvim'
 alias py='python3'
 alias wtadd='git-wtadd'
 alias wtr='git-wtr'
 alias wtl='git worktree list'
 alias grb='git branch | grep -v "master" | xargs git branch -D'
-alias df='/usr/bin/git --git-dir=/Users/sas/bookmarks/config/.dotfiles/ --work-tree=/Users/sas'
+alias df='/usr/bin/git --git-dir=$HOME/bookmarks/config/.dotfiles/ --work-tree=/Users/sas'
 alias vf='v $(fzf)'
 alias stk='stklos'
 alias v="nvim"
-alias zs="nvim /Users/sas/.zshrc"
-alias wt="nvim /Users/sas/.wezterm.lua"
+alias zs="nvim $HOME/.zshrc"
+alias wt="nvim $HOME/.wezterm.lua"
 alias szs="source ~/.zshrc"
 alias chrome="open -a 'Google Chrome'"
 alias c='clear'
@@ -65,7 +66,7 @@ alias docker-compose="docker compose --compatibility $@"
 #Database connection
 alias dbl="mysql -u root -proot"   
 alias db="mysql -u root -h 127.0.0.1 -P 3306 -proot"   
-alias restart-fe="restart-fe.sh"
+alias restart-fe="~/restart-fe.sh"
 
 alias dbe2e="mysql -u root -h 127.0.0.1 -P 3336 -proot"   
 
@@ -110,8 +111,8 @@ export CYPRESS_RMS_SSR_URL=http://localhost:3005
 
 # Define project paths
 declare -A DOCKER_PROJECTS=(
-  ["fe"]="/Users/sas/rms/front-end"
-  ["chat"]="/Users/sas/bookmarks/i/it/projects/chat/front-end/react-app"
+  ["fe"]="$HOME/rms/front-end"
+  ["chat"]="$HOME/bookmarks/i/it/projects/chat/front-end/react-app"
   # Add more projects as needed
 )
 

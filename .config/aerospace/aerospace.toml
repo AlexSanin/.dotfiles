@@ -1,4 +1,4 @@
-# Place a copy of this config to ~/.aerospace.toml
+# Plae a copy of this config to ~/.aerospace.toml
 # After that, you can edit ~/.aerospace.toml to your liking
 
 # You can use it to add commands that run after login to macOS user session.
@@ -128,22 +128,22 @@ alt-b = 'workspace B'
 alt-c = 'workspace C'
 alt-d = 'workspace D'
 alt-e = 'workspace E'
-alt-f = 'workspace F'
+#alt-f = 'workspace F'
 alt-g = 'workspace G'
 alt-i = 'workspace I'
-alt-m = 'workspace M'
-alt-n = 'workspace N'
-alt-o = 'workspace O'
+#alt-m = 'workspace M'
+#alt-n = 'workspace N'
+#alt-o = 'workspace O'
 alt-p = 'workspace P'
-alt-q = 'workspace Q'
-alt-r = 'workspace R'
-alt-s = 'workspace S'
-alt-t = 'workspace T'
-alt-u = 'workspace U'
-alt-v = 'workspace V'
+#alt-q = 'workspace Q'
+#alt-r = 'workspace R'
+#alt-s = 'workspace S'
+#alt-t = 'workspace T'
+#alt-u = 'workspace U'
+#alt-v = 'workspace V'
 alt-w = 'workspace W'
-alt-x = 'workspace X'
-alt-y = 'workspace Y'
+#alt-x = 'workspace X'
+#alt-y = 'workspace Y'
 alt-z = 'workspace Z'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
@@ -161,20 +161,20 @@ alt-shift-b = 'move-node-to-workspace B'
 alt-shift-c = 'move-node-to-workspace C' 
 alt-shift-d = 'move-node-to-workspace D'
 alt-shift-e = 'move-node-to-workspace E'
-alt-shift-f = 'move-node-to-workspace F'
+#alt-shift-f = 'move-node-to-workspace F'
 alt-shift-g = 'move-node-to-workspace G'
 alt-shift-i = 'move-node-to-workspace I'
-alt-shift-m = 'move-node-to-workspace M'
-alt-shift-n = 'move-node-to-workspace N'
-alt-shift-o = 'move-node-to-workspace O'
+#alt-shift-m = 'move-node-to-workspace M'
+#alt-shift-n = 'move-node-to-workspace N'
+#alt-shift-o = 'move-node-to-workspace O'
 alt-shift-p = 'move-node-to-workspace P'
-alt-shift-q = 'move-node-to-workspace Q'
-alt-shift-t = 'move-node-to-workspace T'
-alt-shift-u = 'move-node-to-workspace U'
-alt-shift-v = 'move-node-to-workspace V'
+#alt-shift-q = 'move-node-to-workspace Q'
+#alt-shift-t = 'move-node-to-workspace T'
+#alt-shift-u = 'move-node-to-workspace U'
+#alt-shift-v = 'move-node-to-workspace V'
 alt-shift-w = 'move-node-to-workspace W'
-alt-shift-x = 'move-node-to-workspace X'
-alt-shift-y = 'move-node-to-workspace Y'
+#alt-shift-x = 'move-node-to-workspace X'
+#alt-shift-y = 'move-node-to-workspace Y'
 alt-shift-z = 'move-node-to-workspace Z'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
@@ -184,6 +184,7 @@ alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#mode
 alt-shift-semicolon = 'mode service'
+alt-shift-f = 'fullscreen'
 
 # 'service' binding mode declaration.
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
@@ -215,39 +216,43 @@ B = 'main'
 C = 'main'
 D = 'main'
 E = 'main'
-F = 'main'
+#F = 'main'
 G = 'main'
 P = 'main'
 #secondary
 5 = 'secondary'
 Z = 'secondary'
 
-#move app to workspace by appid
-[[on-window-detected]]
-    if.app-id = 'us.zoom.xos'
-    run = 'move-node-to-workspace Z'
-#slack
-[[on-window-detected]]
-    if.app-id = 'com.tinyspeck.slackmacgap'
-    run = 'move-node-to-workspace S'
-#chrome
-[[on-window-detected]]
-    if.app-id = 'com.google.Chrome'
-    run = 'move-node-to-workspace 2'
-#dbbeaver
-[[on-window-detected]]
-    if.app-id = 'org.jkiss.dbeaver.core.product'
-    run = 'move-node-to-workspace D'
-  #postman
-[[on-window-detected]]
-    if.app-id = 'com.postmanlabs.mac'
-    run = 'move-node-to-workspace P'
-#obsidian
-[[on-window-detected]]
-    if.app-id = 'md.obsidian'
-    run = 'move-node-to-workspace 4'
 #wezterm
 [[on-window-detected]]
     if.app-id = 'com.github.wez.wezterm'
     run = 'move-node-to-workspace 1'
+#chrome
+[[on-window-detected]]
+    if.app-id = 'com.google.Chrome'
+    run = 'move-node-to-workspace 2'
+#slack
+[[on-window-detected]]
+    if.app-id = 'com.tinyspeck.slackmacgap'
+    run = 'move-node-to-workspace 3'
+#obsidian
+[[on-window-detected]]
+    if.app-id = 'md.obsidian'
+    run = 'move-node-to-workspace 4'
+#steam
+[[on-window-detected]]
+    if.app-id = 'com.valvesoftware.steam'
+    run = 'move-node-to-workspace A'
+#dbbeaver
+[[on-window-detected]]
+    if.app-id = 'org.jkiss.dbeaver.core.product'
+    run = 'move-node-to-workspace D'
+#postman
+[[on-window-detected]]
+    if.app-id = 'com.postmanlabs.mac'
+    run = 'move-node-to-workspace P'
+#zoom
+[[on-window-detected]]
+    if.app-id = 'us.zoom.xos'
+    run = 'move-node-to-workspace Z'
 
