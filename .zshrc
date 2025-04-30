@@ -39,7 +39,7 @@ setopt appendhistory
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-alias nc="nvim $HOME/.config/nvim"
+alias nc="cd ~/.config/nvim && nvim $HOME/.config/nvim"
 alias ae="nvim $HOME/.config/aerospace/aerospace.toml"
 alias fzf='fzf | xargs nvim'
 alias py='python3'
@@ -65,7 +65,7 @@ alias docker-compose="docker compose --compatibility $@"
 
 #Database connection
 alias dbl="mysql -u root -proot"   
-alias db="mysql -u root -h 127.0.0.1 -P 3306 -proot"   
+alias db="mysql -u root -h 127.0.0.1 -P 3336 -proot"   
 alias restart-fe="~/restart-fe.sh"
 
 alias dbe2e="mysql -u root -h 127.0.0.1 -P 3336 -proot"   
@@ -177,7 +177,7 @@ function dcps() {
 }
 
 function dcr() {
-  dc "$1" restart "${@:2}"
+  dc "$1" restart "${@:2}" "${@:3}"
 }
 
 function dcexec() {

@@ -33,6 +33,7 @@ return {
         "pyright",
         "ruff",
         "yamlls",
+        "biome",
       },
       handlers = {
         lsp_zero.default_setup,

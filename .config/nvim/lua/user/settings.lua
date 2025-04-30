@@ -19,7 +19,7 @@ vim.opt.cursorline = true                       -- highlight the current line
 vim.opt.number = true                           -- set numbered lines
 vim.opt.laststatus = 3
 vim.opt.showcmd = false
-vim.opt.ruler = true
+--vim.opt.ruler = true
 vim.opt.numberwidth = 2       -- set number column width to 2 {default 4}
 vim.opt.sidescrolloff = 8
 vim.opt.guifont = "Fira Code" -- the font used in graphical neovim applications
@@ -43,7 +43,7 @@ vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
 vim.g.markdown_recommended_style = 0
 
-vim.opt.wrap = false
+vim.opt.wrap = true
 vim.opt.textwidth = 120
 vim.opt.linebreak = true
 vim.opt.breakindent = true
@@ -78,7 +78,7 @@ vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "CursorHoldI", "FocusGai
 vim.opt.updatetime = 50
 --end of watch on files changes
 
---vim.opt.colorcolumn = "80"
+vim.opt.colorcolumn = "120"
 
 --rainbow brackets
 vim.g.rainbow_active = 1
@@ -90,3 +90,16 @@ vim.g.rainbow_active = 1
 --  highlight Normal ctermbg=none
 --  highlight NonText ctermbg=none
 --]]
+-- For dark themes - make the color column more visible
+--vim.api.nvim_create_autocmd("ColorScheme", {
+--  pattern = "*",
+--  callback = function()
+--    if vim.o.background == "dark" then
+--      -- Adjust the color to something visible in dark themes
+--      vim.api.nvim_set_hl(0, "ColorColumn", { bg = "#fa8072" })
+--    else
+--      -- For light themes you could also set a custom color if needed
+--      vim.api.nvim_set_hl(0, "ColorColumn", { bg = "#fa8072" })
+--    end
+--  end,
+--})

@@ -56,6 +56,11 @@ keymap("v", ">", ">gv", opts)
 -- Eslint
 keymap("n", "<leader>;", ":EslintFixAll<CR>", opts)
 
+-- Biome format
+keymap("n", "<leader>bf", function() vim.cmd("!biome format --write %") end, opts)
+keymap("n", "<leader>bl", function() vim.cmd("!biome lint %") end, opts)
+keymap("n", "<leader>bc", function() vim.cmd("!biome check %") end, opts)
+
 -- Git
 --" setup mapping to call :LazyGit
 keymap("n", "<leader>gg", ":LazyGit<CR>")
@@ -142,3 +147,22 @@ keymap("n", "<leader>oi", "<cmd>:ObsidianTemplate<cr>", opts)
 keymap("n", "<leader>k", "<cmd>cnext<CR>zz")
 --got to the next lsp suggestions
 keymap("n", "<leader>j", "<cmd>cprev<CR>zz")
+
+keymap("n", "<leader>tt", function() require("user.themes").cycle() end, opts)
+keymap("n", "<leader>tl", function() require("user.themes").list() end, opts)
+keymap("n", "<leader>td", function() require("user.themes").toggle() end, opts)
+
+
+--REFACTORING
+keymap("x", "<leader>re", ":Refactor extract ")
+keymap("x", "<leader>rf", ":Refactor extract_to_file ")
+
+keymap("x", "<leader>rv", ":Refactor extract_var ")
+
+keymap({ "n", "x" }, "<leader>ri", ":Refactor inline_var")
+
+keymap( "n", "<leader>rI", ":Refactor inline_func")
+
+keymap("n", "<leader>rb", ":Refactor extract_block")
+keymap("n", "<leader>rbf", ":Refactor extract_block_to_file")
+

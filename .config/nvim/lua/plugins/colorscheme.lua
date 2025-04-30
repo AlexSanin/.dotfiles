@@ -1,50 +1,82 @@
---return {}
 return {
-  "oxfist/night-owl.nvim",
-  lazy = false,
-  priority = 1000,
-  config = function()
-    require("night-owl").setup({
-      bold = true,
-      italic = true,
-      underline = true,
-      undercurl = true,
-      transparent_background = true,
-    }) vim.cmd.colorscheme("night-owl")
-  end,
-}
+  --{
+  --  "sainnhe/everforest",
+  --  lazy = false,
+  --  priority = 1001,
+  --  config = function()
+  --    vim.g.everforest_background = 'soft'
+  --    vim.g.everforest_better_performance = 1
+  --    vim.cmd.colorscheme("everforest")
+  --  end,
+  --},
+  -- Keep your other themes here, but they won't override this one due to priority
+  --{
+  --  "phha/zenburn.nvim",
+  --  lazy = false,
+  --  priority = 1001,
+  --  config = function()
+  --    require("zenburn").setup()
+  --    vim.cmd.colorscheme("zenburn")
+  --  end,
+  --}
+  --{
+  --  'shaunsingh/nord.nvim',
+  --  config = function()
+  --    vim.o.background = "dark"
+  --    vim.cmd.colorscheme("nord")
+  --  end,
+  --}
+   {
+     "oxfist/night-owl.nvim",
+     lazy = false,
+     priority = 1000,
+     config = function()
+       require("night-owl").setup({
+         bold = true,
+         italic = true,
+         underline = true,
+         undercurl = true,
+         --transparent_background = true,
+       })
+       vim.cmd.colorscheme("night-owl")
+       vim.o.background = "dark"
+     end,
+   },
 
--- lua/plugins/rose-pine.lua
+  --- -- GitHub Light theme
+  --- {
+  ---   "projekt0n/github-nvim-theme",
+  ---   lazy = false,
+  ---   priority = 999,
+  --- },
 
---return {
---  "ellisonleao/gruvbox.nvim",
---  -- Default options:
---  config = function()
---    require("gruvbox").setup({
---      terminal_colors = true, -- add neovim terminal colors
---      undercurl = true,
---      underline = true,
---      bold = true,
---      italic = {
---        strings = true,
---        emphasis = true,
---        comments = true,
---        operators = false,
---        folds = true,
---      },
---      strikethrough = true,
---      invert_selection = false,
---      invert_signs = false,
---      invert_tabline = false,
---      invert_intend_guides = false,
---      inverse = true, -- invert background for search, diffs, statuslines and errors
---      contrast = "",  -- can be "hard", "soft" or empty string
---      palette_overrides = {},
---      overrides = {},
---      dim_inactive = false,
---      transparent_mode = true,
---    })
---    vim.cmd("colorscheme gruvbox")
---    vim.o.background = "dark" -- or "light" for light mode
---  end,
---}
+  --- -- Solarized Light theme
+  --- {
+  ---   "craftzdog/solarized-osaka.nvim",
+  ---   lazy = false,
+  ---   priority = 998,
+  --- },
+
+  --- -- Gruvbox theme (already has light mode)
+  --- {
+  ---   "ellisonleao/gruvbox.nvim",
+  ---   lazy = false,
+  ---   priority = 997,
+  --- },
+
+  --- -- Catppuccin theme (with Latte light variant)
+  --- {
+  ---   "catppuccin/nvim",
+  ---   name = "catppuccin",
+  ---   lazy = false,
+  ---   priority = 996,
+  --- },
+
+  --- -- Rose Pine theme (with Dawn light variant)
+  --- {
+  ---   "rose-pine/neovim",
+  ---   name = "rose-pine",
+  ---   lazy = false,
+  ---   priority = 995,
+  --- }
+} ---
