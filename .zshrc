@@ -56,9 +56,6 @@ alias wt="nvim $HOME/.wezterm.lua"
 alias szs="source ~/.zshrc"
 alias chrome="open -a 'Google Chrome'"
 alias c='clear'
-#alias aws-dev='export AWS_PROFILE=dev'
-alias aws-prod='export AWS_PROFILE=prod'
-alias aws-def='export AWS_PROFILE=default'
 
 alias odc="nvim $fe/docker-compose.yml"
 alias docker-compose="docker compose --compatibility $@"
@@ -201,4 +198,14 @@ function aws-dev() {
     export AWS_SECRET_ACCESS_KEY=$(aws configure get aws_secret_access_key --profile dev)
     export AWS_DEFAULT_REGION=$(aws configure get region --profile dev)
 }
+
+function aws-prod() {
+    export AWS_PROFILE=prod
+    export AWS_ACCESS_KEY_ID=$(aws configure get aws_access_key_id --profile prod)
+    export AWS_SECRET_ACCESS_KEY=$(aws configure get aws_secret_access_key --profile prod)
+    export AWS_DEFAULT_REGION=$(aws configure get region --profile prod)
+}
 bindkey -s ^f "tmux-sessionizer\n"
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init - zsh)"

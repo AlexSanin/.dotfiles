@@ -1,8 +1,8 @@
 return {
   'VonHeikemen/lsp-zero.nvim',
   dependencies = {
-    { 'williamboman/mason.nvim',          config = true },
-    { 'williamboman/mason-lspconfig.nvim' },
+    { "mason-org/mason.nvim",           version = "^1.0.0" },
+    { "mason-org/mason-lspconfig.nvim", version = "^1.0.0" },
     { 'neovim/nvim-lspconfig' },
   },
   config = function()
@@ -34,6 +34,7 @@ return {
         "ruff",
         "yamlls",
         "biome",
+        "gopls",
       },
       handlers = {
         lsp_zero.default_setup,

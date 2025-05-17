@@ -5,6 +5,7 @@ return {
   version = "*", -- Set this to "*" to always pull the latest release version, or set it to false to update to the latest code changes.
   opts = {
     -- add any opts here
+    use_xml_format = true,
   },
   -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
   build = "make",
@@ -47,3 +48,4 @@ return {
     },
   },
 }
+
