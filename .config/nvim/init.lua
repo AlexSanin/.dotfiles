@@ -4,7 +4,6 @@ vim.g.maplocalleader = "\\"
 
 -- Load user settings first
 require("user.settings")
---require("user.themes")
 
 -- Then load lazy
 require("config.lazy")

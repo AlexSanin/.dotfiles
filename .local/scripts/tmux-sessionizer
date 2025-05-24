@@ -3,7 +3,15 @@
 if [[ $# -eq 1 ]]; then
     selected=$1
 else
-    selected=$(find ~/rms ~/.local ~/.config  ~/bookmarks/i/it/courses ~/bookmarks/i/it/projects -mindepth 1 -maxdepth 1 -type d | fzf)
+    dirs=(
+        ~/rms
+        ~/.local
+        ~/.config
+        ~/bookmarks/i/it/courses
+        ~/bookmarks/i/it/projects
+        ~/bookmarks/i/it/projects/sandboxes
+    )
+    selected=$(find "${dirs[@]}" -mindepth 1 -maxdepth 1 -type d | fzf)
 fi
 
 if [[ -z $selected ]]; then

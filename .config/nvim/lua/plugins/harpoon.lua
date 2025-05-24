@@ -1,20 +1,26 @@
 return {
 	"ThePrimeagen/harpoon",
+	branch = "harpoon2",
 	lazy = false,
 	dependencies = {
 		"nvim-lua/plenary.nvim",
 	},
-	config = true,
+	config = function()
+		local harpoon = require("harpoon")
+		-- REQUIRED
+		harpoon:setup()
+		-- REQUIRED
+	end,
 	keys = {
-		{ "<leader>a", "<cmd>lua require('harpoon.mark').add_file()<cr>", desc = "Mark file with harpoon" },
-		{ "<leader>1", "<cmd>lua require('harpoon.ui').nav_file(1)<cr>", desc = "Mark file with harpoon" },
-		{ "<leader>2", "<cmd>lua require('harpoon.ui').nav_file(2)<cr>", desc = "Mark file with harpoon" },
-		{ "<leader>3", "<cmd>lua require('harpoon.ui').nav_file(3)<cr>", desc = "Mark file with harpoon" },
-		{ "<leader>4", "<cmd>lua require('harpoon.ui').nav_file(4)<cr>", desc = "Mark file with harpoon" },
-		{ "<leader>5", "<cmd>lua require('harpoon.ui').nav_file(5)<cr>", desc = "Mark file with harpoon" },
-		{ "<leader>6", "<cmd>lua require('harpoon.ui').nav_file(6)<cr>", desc = "Mark file with harpoon" },
-		{ "<leader><TAB>", "<cmd>lua require('harpoon.ui').nav_next()<cr>", desc = "Go to next harpoon mark" },
-		{ "<leader><S-TAB>", "<cmd>lua require('harpoon.ui').nav_prev()<cr>", desc = "Go to previous harpoon mark" },
-		{ "<leader>ha", "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>", desc = "Show harpoon marks" },
+		{ "<leader>a", function() require("harpoon"):list():add() end, desc = "Mark file with harpoon" },
+		{ "<leader>1", function() require("harpoon"):list():select(1) end, desc = "Navigate to harpoon file 1" },
+		{ "<leader>2", function() require("harpoon"):list():select(2) end, desc = "Navigate to harpoon file 2" },
+		{ "<leader>3", function() require("harpoon"):list():select(3) end, desc = "Navigate to harpoon file 3" },
+		{ "<leader>4", function() require("harpoon"):list():select(4) end, desc = "Navigate to harpoon file 4" },
+		{ "<leader>5", function() require("harpoon"):list():select(5) end, desc = "Navigate to harpoon file 5" },
+		{ "<leader>6", function() require("harpoon"):list():select(6) end, desc = "Navigate to harpoon file 6" },
+		{ "<leader><TAB>", function() require("harpoon"):list():next() end, desc = "Go to next harpoon mark" },
+		{ "<leader><S-TAB>", function() require("harpoon"):list():prev() end, desc = "Go to previous harpoon mark" },
+		{ "<leader>ha", function() require("harpoon").ui:toggle_quick_menu(require("harpoon"):list()) end, desc = "Show harpoon marks" },
 	},
 }

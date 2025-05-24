@@ -148,11 +148,6 @@ keymap("n", "<leader>k", "<cmd>cnext<CR>zz")
 --got to the next lsp suggestions
 keymap("n", "<leader>j", "<cmd>cprev<CR>zz")
 
-keymap("n", "<leader>tt", function() require("user.themes").cycle() end, opts)
-keymap("n", "<leader>tl", function() require("user.themes").list() end, opts)
-keymap("n", "<leader>td", function() require("user.themes").toggle() end, opts)
-
-
 --REFACTORING
 keymap("x", "<leader>re", ":Refactor extract ")
 keymap("x", "<leader>rf", ":Refactor extract_to_file ")

@@ -1,6 +1,6 @@
 vim.g.loaded_netrw = 2
 vim.g.loaded_netrwPlugin = 1
-vim.opt.clipboard = "unnamedplus"               -- allows neovim to access the system clipboard
+--vim.opt.clipboard = "unnamedplus"               -- allows neovim to access the system clipboard
 vim.opt.cmdheight = 1                           -- more space in the neovim command line for displaying messages
 vim.opt.completeopt = { "menuone", "noselect" } -- mostly just for cmp
 vim.opt.conceallevel = 0                        -- so that `` is visible in markdown files
@@ -18,7 +18,7 @@ vim.opt.smarttab = true
 vim.opt.cursorline = true                       -- highlight the current line
 vim.opt.number = true                           -- set numbered lines
 vim.opt.laststatus = 3
-vim.opt.showcmd = false
+vim.opt.showcmd = true
 --vim.opt.ruler = true
 vim.opt.numberwidth = 2       -- set number column width to 2 {default 4}
 vim.opt.sidescrolloff = 8
@@ -43,7 +43,7 @@ vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
 vim.g.markdown_recommended_style = 0
 
-vim.opt.wrap = true
+vim.opt.wrap = false
 vim.opt.textwidth = 120
 vim.opt.linebreak = true
 vim.opt.breakindent = true
@@ -63,10 +63,7 @@ vim.opt.isfname:append("@-@")
 
 --watch on files changes
 vim.o.autoread = true
---vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "CursorHoldI", "FocusGained" }, {
---  command = "if mode() != 'c' | checktime | endif",
---  pattern = { "*" },
---})
+
 vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "CursorHoldI", "FocusGained" }, {
   callback = function()
     if vim.fn.getcmdwintype() == '' then
@@ -83,23 +80,3 @@ vim.opt.colorcolumn = "120"
 --rainbow brackets
 vim.g.rainbow_active = 1
 
---transparent bg
---vim.cmd [[
---  highlight Normal guibg=none
---  highlight NonText guibg=none
---  highlight Normal ctermbg=none
---  highlight NonText ctermbg=none
---]]
--- For dark themes - make the color column more visible
---vim.api.nvim_create_autocmd("ColorScheme", {
---  pattern = "*",
---  callback = function()
---    if vim.o.background == "dark" then
---      -- Adjust the color to something visible in dark themes
---      vim.api.nvim_set_hl(0, "ColorColumn", { bg = "#fa8072" })
---    else
---      -- For light themes you could also set a custom color if needed
---      vim.api.nvim_set_hl(0, "ColorColumn", { bg = "#fa8072" })
---    end
---  end,
---})

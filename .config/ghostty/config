@@ -1,4 +1,4 @@
-font-size = 16 
+font-size = 18
 font-family = FiraCode Nerd Font
-background-opacity = 0.9
-theme = light:rose-pine,dark:rose-pine
+background-opacity = 1
+theme = Wez
